@@ -22,6 +22,9 @@ import LoadingScreen from "./pages/Utility/LoadingScreen";
 
 import LandingPage from "@/pages/Landing/page";
 import DownloadPage from "./pages/Download/page";
+import ContactPage from "./pages/Utility/Contact";
+import AdminLogin from "./pages/Admin/login";
+import AboutPage from "./pages/About/page";
 
 function App() {
 
@@ -50,9 +53,12 @@ function App() {
               
                 <Route index element={<LandingPage/>} />
                 <Route path="/download" element={<DownloadPage/>} />
+                <Route path="/contact" element={<ContactPage/>} />
+                <Route path="/about" element={<AboutPage/>} />
 
             </Route>
 
+            <Route path="/admin-login" element={<AdminLogin/>} />
             <Route path="*" element={<NotFoundPage />} />
 
           </Routes>

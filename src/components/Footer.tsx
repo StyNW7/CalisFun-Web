@@ -40,7 +40,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/tentang" className="text-gray-300 hover:text-[#3D7BF7] transition-colors">
+                <a href="/about" className="text-gray-300 hover:text-[#3D7BF7] transition-colors">
                   Tentang Kami
                 </a>
               </li>
@@ -83,16 +83,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-gray-700 mt-8 pt-8 flex justify-center items-center">
           <p className="text-gray-400 text-sm">© 2025 CalisFun. Semua hak dilindungi undang-undang.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
+          {/* <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="/privacy" className="text-gray-400 hover:text-[#3D7BF7] text-sm transition-colors">
               Kebijakan Privasi
             </a>
             <a href="/terms" className="text-gray-400 hover:text-[#3D7BF7] text-sm transition-colors">
               Syarat & Ketentuan
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

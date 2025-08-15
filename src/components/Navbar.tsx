@@ -9,12 +9,12 @@ export default function Navigation() {
 
   return (
     <nav className="bg-white shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-3">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <a href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-[#3D7BF7] rounded-lg flex items-center justify-center">
-              <BookOpen className="w-6 h-6 text-white" />
+            <div className="w-12 h-12 rounded-lg flex items-center justify-center">
+              <img className="w-12 h-12 text-white" src="/Images/logo.png"></img>
             </div>
             <span className="text-2xl font-bold text-[#3D7BF7]">CalisFun</span>
           </a>
@@ -24,7 +24,7 @@ export default function Navigation() {
             <a href="/" className="text-gray-700 hover:text-[#3D7BF7] transition-colors">
               Beranda
             </a>
-            <a href="/tentang" className="text-gray-700 hover:text-[#3D7BF7] transition-colors">
+            <a href="/about" className="text-gray-700 hover:text-[#3D7BF7] transition-colors">
               Tentang
             </a>
             <div className="relative group">
@@ -58,10 +58,12 @@ export default function Navigation() {
                 </a>
               </div>
             </div>
-            <a href="/kontak" className="text-gray-700 hover:text-[#3D7BF7] transition-colors">
+            <a href="/contact" className="text-gray-700 hover:text-[#3D7BF7] transition-colors">
               Kontak
             </a>
-            <Button className="bg-[#3D7BF7] hover:bg-[#2563EB] text-white">Mulai Belajar</Button>
+            <a href="/download">
+              <Button className="bg-[#3D7BF7] hover:bg-[#2563EB] text-white">Mulai Belajar</Button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -79,7 +81,7 @@ export default function Navigation() {
               <a href="/" className="block px-3 py-2 text-gray-700 hover:text-[#3D7BF7] transition-colors">
                 Beranda
               </a>
-              <a href="/tentang" className="block px-3 py-2 text-gray-700 hover:text-[#3D7BF7] transition-colors">
+              <a href="/about" className="block px-3 py-2 text-gray-700 hover:text-[#3D7BF7] transition-colors">
                 Tentang
               </a>
               <a href="/baca" className="block px-3 py-2 text-gray-700 hover:text-[#06D6A0] transition-colors">
@@ -91,11 +93,13 @@ export default function Navigation() {
               <a href="/hitung" className="block px-3 py-2 text-gray-700 hover:text-[#E63946] transition-colors">
                 Hitung
               </a>
-              <a href="/kontak" className="block px-3 py-2 text-gray-700 hover:text-[#3D7BF7] transition-colors">
+              <a href="/contact" className="block px-3 py-2 text-gray-700 hover:text-[#3D7BF7] transition-colors">
                 Kontak
               </a>
               <div className="px-3 py-2">
-                <Button className="w-full bg-[#3D7BF7] hover:bg-[#2563EB] text-white">Mulai Belajar</Button>
+                <a href="/download">
+                  <Button className="w-full bg-[#3D7BF7] hover:bg-[#2563EB] text-white">Mulai Belajar</Button>
+                </a>
               </div>
             </div>
           </div>
