@@ -983,6 +983,176 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Download App Section */}
+      <section className="py-20 bg-gradient-to-br from-[#3D7BF7] via-[#2563EB] to-[#1D4ED8] text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=1200')] opacity-5"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Content */}
+            <div className="animate-in slide-in-from-left duration-1000">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-12 h-12 bg-[#FFB703] rounded-full flex items-center justify-center">
+                  <Play className="w-6 h-6 text-black" />
+                </div>
+                <span className="text-[#FFB703] font-semibold text-lg">Download Aplikasi Mobile</span>
+              </div>
+
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                Belajar Kapan Saja, <span className="text-[#06D6A0]">Di Mana Saja</span>
+              </h2>
+
+              <p className="text-xl mb-8 text-blue-100 leading-relaxed">
+                Download aplikasi CalisFun di smartphone Anda dan nikmati pengalaman belajar yang lebih personal. Akses
+                semua fitur pembelajaran interaktif langsung dari genggaman!
+              </p>
+
+              {/* Features List */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div className="flex items-center space-x-3">
+                  <div className="w-6 h-6 bg-[#06D6A0] rounded-full flex items-center justify-center flex-shrink-0">
+                    <BookOpen className="w-3 h-3 text-white" />
+                  </div>
+                  <span className="text-blue-100">Akses Offline</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-6 h-6 bg-[#FFB703] rounded-full flex items-center justify-center flex-shrink-0">
+                    <Star className="w-3 h-3 text-white" />
+                  </div>
+                  <span className="text-blue-100">Notifikasi Belajar</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-6 h-6 bg-[#E63946] rounded-full flex items-center justify-center flex-shrink-0">
+                    <Award className="w-3 h-3 text-white" />
+                  </div>
+                  <span className="text-blue-100">Progress Tracking</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-6 h-6 bg-[#06D6A0] rounded-full flex items-center justify-center flex-shrink-0">
+                    <Users className="w-3 h-3 text-white" />
+                  </div>
+                  <span className="text-blue-100">Mode Keluarga</span>
+                </div>
+              </div>
+
+              {/* Download Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 mb-6">
+                <button
+                  onClick={() => {
+                    // Create and download APK file
+                    const link = document.createElement("a")
+                    link.href = "/placeholder.apk"
+                    link.download = "CalisFun-v1.2.3.apk"
+                    document.body.appendChild(link)
+                    link.click()
+                    document.body.removeChild(link)
+                  }}
+                  className="group bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-3"
+                >
+                  <div className="w-8 h-8 bg-[#06D6A0] rounded-lg flex items-center justify-center">
+                    <Play className="w-4 h-4 text-white" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-xs text-gray-300">Download untuk</div>
+                    <div className="text-lg font-bold">Android</div>
+                  </div>
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+
+                <button
+                  onClick={() => {
+                    // Create and download IPA file
+                    const link = document.createElement("a")
+                    link.href = "/placeholder.ipa"
+                    link.download = "CalisFun-v1.2.3.ipa"
+                    document.body.appendChild(link)
+                    link.click()
+                    document.body.removeChild(link)
+                  }}
+                  className="group bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-3"
+                >
+                  <div className="w-8 h-8 bg-[#FFB703] rounded-lg flex items-center justify-center">
+                    <Star className="w-4 h-4 text-white" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-xs text-gray-300">Download untuk</div>
+                    <div className="text-lg font-bold">iOS</div>
+                  </div>
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+
+              {/* Additional Info */}
+              <div className="flex items-center space-x-6 text-sm text-blue-200">
+                <div className="flex items-center space-x-2">
+                  <Star className="w-4 h-4 text-[#FFB703]" />
+                  <span>Rating 4.9/5</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Users className="w-4 h-4 text-[#06D6A0]" />
+                  <span>100K+ Download</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Award className="w-4 h-4 text-[#E63946]" />
+                  <span>Gratis</span>
+                </div>
+              </div>
+
+              {/* Learn More Link */}
+              <div className="mt-8">
+                <a
+                  href="/download"
+                  className="inline-flex items-center space-x-2 text-[#FFB703] hover:text-[#F59E0B] font-semibold transition-colors group"
+                >
+                  <span>Pelajari lebih lanjut tentang aplikasi mobile</span>
+                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
+            </div>
+
+            {/* Phone Mockup */}
+            <div className="animate-in slide-in-from-right duration-1000 delay-300">
+              <div className="relative">
+                {/* Main Phone */}
+                <div className="relative mx-auto w-80 h-96 bg-gradient-to-b from-gray-900 to-black rounded-3xl p-2 shadow-2xl">
+                  <div className="w-full h-full bg-white rounded-2xl overflow-hidden relative">
+                    <img
+                      src="/placeholder.svg?height=400&width=300"
+                      alt="CalisFun Mobile App"
+                      className="w-full h-full object-cover"
+                    />
+                    {/* App UI Overlay */}
+                    <div className="absolute top-4 left-4 right-4">
+                      <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-8 h-8 bg-[#3D7BF7] rounded-lg flex items-center justify-center">
+                            <BookOpen className="w-4 h-4 text-white" />
+                          </div>
+                          <div>
+                            <div className="text-sm font-semibold text-gray-900">Belajar Baca</div>
+                            <div className="text-xs text-gray-600">Progress: 75%</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Elements */}
+                <div className="absolute -top-6 -left-6 w-16 h-16 bg-[#06D6A0] rounded-2xl flex items-center justify-center animate-bounce shadow-lg">
+                  <BookOpen className="w-8 h-8 text-white" />
+                </div>
+                <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-[#E63946] rounded-2xl flex items-center justify-center animate-bounce delay-500 shadow-lg">
+                  <Calculator className="w-8 h-8 text-white" />
+                </div>
+                <div className="absolute top-1/2 -right-8 w-12 h-12 bg-[#FFB703] rounded-xl flex items-center justify-center animate-pulse shadow-lg">
+                  <Star className="w-6 h-6 text-white" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   )
 }

@@ -13,7 +13,7 @@ import Layout from "@/layouts/root-layout";
 // Utility Pages / Components
 
 import ScrollToTop from "./utility/ScrollToTop";
-import CustomCursor from "./utility/CustomCursor";
+// import CustomCursor from "./utility/CustomCursor";
 import ScrollToTopFunction from "./utility/ScrollToTopFunction";
 import NotFoundPage from "./pages/Utility/NotFound404";
 import LoadingScreen from "./pages/Utility/LoadingScreen";
@@ -21,6 +21,7 @@ import LoadingScreen from "./pages/Utility/LoadingScreen";
 // Pages
 
 import LandingPage from "@/pages/Landing/page";
+import DownloadPage from "./pages/Download/page";
 
 function App() {
 
@@ -33,7 +34,7 @@ function App() {
     <BrowserRouter>
       <ScrollToTopFunction />
       <ScrollToTop />
-      <CustomCursor />
+      {/* <CustomCursor /> */}
 
       {loading && (
         <LoadingScreen onComplete={() => setLoading(false)} />
@@ -44,16 +45,15 @@ function App() {
         {!loading && (
 
           <Routes>
-
             
-
             <Route path="/" element={<Layout />}>
               
                 <Route index element={<LandingPage/>} />
-
-                <Route path="*" element={<NotFoundPage />} />
+                <Route path="/download" element={<DownloadPage/>} />
 
             </Route>
+
+            <Route path="*" element={<NotFoundPage />} />
 
           </Routes>
 
