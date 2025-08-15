@@ -1,5 +1,3 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Calculator, Target, Users, Star, Play, CheckCircle, Award, Brain } from "lucide-react"
@@ -7,7 +5,6 @@ import { Calculator, Target, Users, Star, Play, CheckCircle, Award, Brain } from
 export default function HitungPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-rose-50">
-      <Navigation />
 
       {/* Hero Section */}
       <section className="py-20 px-4">
@@ -301,7 +298,6 @@ export default function HitungPage() {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }

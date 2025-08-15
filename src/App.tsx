@@ -18,13 +18,26 @@ import ScrollToTopFunction from "./utility/ScrollToTopFunction";
 import NotFoundPage from "./pages/Utility/NotFound404";
 import LoadingScreen from "./pages/Utility/LoadingScreen";
 
-// Pages
+// Main Pages
 
 import LandingPage from "@/pages/Landing/page";
 import DownloadPage from "./pages/Download/page";
-import ContactPage from "./pages/Utility/Contact";
-import AdminLogin from "./pages/Admin/login";
 import AboutPage from "./pages/About/page";
+
+// Utility Pages
+
+import ContactPage from "./pages/Utility/Contact";
+
+// Feature Pages
+
+import TulisPage from "./pages/Features/write";
+import BacaPage from "./pages/Features/read";
+import HitungPage from "./pages/Features/count";
+
+
+// Admin Pages
+
+import AdminLogin from "./pages/Admin/login";
 
 function App() {
 
@@ -50,9 +63,22 @@ function App() {
           <Routes>
             
             <Route path="/" element={<Layout />}>
+
+                {/* Main Pages */}
               
                 <Route index element={<LandingPage/>} />
                 <Route path="/download" element={<DownloadPage/>} />
+                
+
+                {/* Feature Pages */}
+                
+                <Route path="/hitung" element={<HitungPage/>} />
+                <Route path="/baca" element={<BacaPage/>} />
+                <Route path="/tulis" element={<TulisPage/>} />
+
+
+                {/* Utility Pages */}
+
                 <Route path="/contact" element={<ContactPage/>} />
                 <Route path="/about" element={<AboutPage/>} />
 
