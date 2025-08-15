@@ -46,21 +46,25 @@ export default function HomePage() {
                 <strong>Baca, Tulis, dan Hitung</strong> dengan cara yang seru dan mudah dipahami.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-[#FFB703] hover:bg-[#F59E0B] text-black font-semibold px-8 py-4 text-lg"
-                >
-                  <Play className="w-5 h-5 mr-2" />
-                  Mulai Belajar Sekarang
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-[#3D7BF7] px-8 py-4 text-lg bg-transparent"
-                >
-                  Lihat Demo
-                  <ChevronRight className="w-5 h-5 ml-2" />
-                </Button>
+                <a href="/download">
+                  <Button
+                    size="lg"
+                    className="bg-[#FFB703] hover:bg-[#F59E0B] text-black font-semibold px-8 py-4 text-lg"
+                  >
+                    <Play className="w-5 h-5 mr-2" />
+                    Unduh Aplikasi
+                  </Button>
+                </a>
+                <a href="/about">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-white text-white hover:bg-white hover:text-[#3D7BF7] px-8 py-4 text-lg bg-transparent"
+                  >
+                    Pelajari Lebih Lanjut
+                    <ChevronRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </a>
               </div>
             </div>
             <div className="animate-in slide-in-from-right duration-1000 delay-300">
@@ -184,10 +188,12 @@ export default function HomePage() {
                     <span>15 Menit per Sesi</span>
                   </div>
                 </div>
-                <Button className="w-full bg-[#06D6A0] hover:bg-[#059669] text-white group-hover:scale-105 transition-transform duration-300">
-                  Mulai Belajar Baca
-                  <ChevronRight className="w-4 h-4 ml-2" />
-                </Button>
+                <a href="/baca">
+                  <Button className="w-full bg-[#06D6A0] hover:bg-[#059669] text-white group-hover:scale-105 transition-transform duration-300">
+                    Mulai Belajar Baca
+                    <ChevronRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </a>
               </CardContent>
             </Card>
 
@@ -216,10 +222,12 @@ export default function HomePage() {
                     <span>Latihan Harian</span>
                   </div>
                 </div>
-                <Button className="w-full bg-[#FFB703] hover:bg-[#F59E0B] text-black group-hover:scale-105 transition-transform duration-300">
-                  Mulai Belajar Tulis
-                  <ChevronRight className="w-4 h-4 ml-2" />
-                </Button>
+                <a href="/tulis">
+                  <Button className="w-full bg-[#FFB703] hover:bg-[#F59E0B] text-black group-hover:scale-105 transition-transform duration-300">
+                    Mulai Belajar Tulis
+                    <ChevronRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </a>
               </CardContent>
             </Card>
 
@@ -248,10 +256,12 @@ export default function HomePage() {
                     <span>Level Progresif</span>
                   </div>
                 </div>
-                <Button className="w-full bg-[#E63946] hover:bg-[#DC2626] text-white group-hover:scale-105 transition-transform duration-300">
-                  Mulai Belajar Hitung
-                  <ChevronRight className="w-4 h-4 ml-2" />
-                </Button>
+                <a href="/hitung">
+                  <Button className="w-full bg-[#E63946] hover:bg-[#DC2626] text-white group-hover:scale-105 transition-transform duration-300">
+                    Mulai Belajar Hitung
+                    <ChevronRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </a>
               </CardContent>
             </Card>
           </div>
