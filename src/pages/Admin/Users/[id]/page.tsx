@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 
 import { useState } from "react"
@@ -193,12 +192,6 @@ export default function UserDetailPage() {
     if (level >= 20) return "text-blue-600"
     if (level >= 10) return "text-green-600"
     return "text-gray-600"
-  }
-
-  const getDifficultyColor = (percentage: number) => {
-    if (percentage >= 80) return "bg-green-500"
-    if (percentage >= 60) return "bg-yellow-500"
-    return "bg-red-500"
   }
 
   return (
