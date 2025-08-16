@@ -62,7 +62,7 @@ export default function Navigation() {
               Kontak
             </a>
             <a href="/download">
-              <Button className="bg-[#3D7BF7] hover:bg-[#2563EB] text-white">Mulai Belajar</Button>
+              <Button className="bg-[#3D7BF7] hover:bg-[#2563EB] text-white">Unduh Aplikasi</Button>
             </a>
           </div>
 
@@ -98,7 +98,7 @@ export default function Navigation() {
               </a>
               <div className="px-3 py-2">
                 <a href="/download">
-                  <Button className="w-full bg-[#3D7BF7] hover:bg-[#2563EB] text-white">Mulai Belajar</Button>
+                  <Button className="w-full bg-[#3D7BF7] hover:bg-[#2563EB] text-white">Unduh Aplikasi</Button>
                 </a>
               </div>
             </div>

@@ -35,9 +35,15 @@ import BacaPage from "./pages/Features/read";
 import HitungPage from "./pages/Features/count";
 
 
+// Auth Pages
+
+import AdminLogin from "./pages/Auth/login";
+
 // Admin Pages
 
-import AdminLogin from "./pages/Admin/login";
+import ManageUsersPage from "./pages/Admin/Users/page";
+import UserDetailPage from "./pages/Admin/Users/[id]/page";
+import AdminOverviewPage from "./pages/Admin/overview";
 
 function App() {
 
@@ -76,13 +82,20 @@ function App() {
                 <Route path="/baca" element={<BacaPage/>} />
                 <Route path="/tulis" element={<TulisPage/>} />
 
-
                 {/* Utility Pages */}
 
                 <Route path="/contact" element={<ContactPage/>} />
                 <Route path="/about" element={<AboutPage/>} />
 
             </Route>
+
+            {/* <Route path="/admin/overview" element={<DashboardLayout children={<AdminOverviewPage/>} />}/> */}
+
+            {/* Admin Pages */}
+                
+            <Route path="/admin/overview" element={<AdminOverviewPage/>} />
+            <Route path="/admin/manage-user" element={<ManageUsersPage/>} />
+            <Route path="/admin/user/:id" element={<UserDetailPage/>} />
 
             <Route path="/admin-login" element={<AdminLogin/>} />
             <Route path="*" element={<NotFoundPage />} />
