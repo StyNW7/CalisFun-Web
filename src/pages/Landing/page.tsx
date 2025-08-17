@@ -25,6 +25,7 @@ import {
   MessageCircle,
   Send,
   HelpCircle,
+  Github,
 } from "lucide-react"
 import { useNavigate } from "react-router"
 
@@ -330,7 +331,7 @@ export default function HomePage() {
               <CardContent className="p-6 text-center">
                 <div className="relative mb-6">
                   <img
-                    src="/Images/placeholder/avatar.png?height=120&width=120"
+                    src="/Images/team/Stanley.png?height=120&width=120"
                     alt="Dr. Sari Wijaya"
                     className="w-24 h-24 rounded-full mx-auto object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -338,18 +339,22 @@ export default function HomePage() {
                     <BookOpen className="w-4 h-4 text-white" />
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Dr. Sari Wijaya</h3>
-                <p className="text-[#3D7BF7] font-medium mb-3">Founder & CEO</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Stanley Nathanael Wijaya</h3>
+                <p className="text-[#3D7BF7] font-medium mb-3">Fullstack Developer</p>
                 <p className="text-gray-600 text-sm mb-4">
-                  Ahli pendidikan anak dengan 15+ tahun pengalaman dalam pengembangan kurikulum pembelajaran dasar
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam sit assumenda doloremque nam.
                 </p>
                 <div className="flex justify-center space-x-3">
-                  <button className="w-8 h-8 bg-gray-100 hover:bg-[#3D7BF7] hover:text-white rounded-full flex items-center justify-center transition-colors">
-                    <Linkedin className="w-4 h-4" />
-                  </button>
-                  <button className="w-8 h-8 bg-gray-100 hover:bg-[#3D7BF7] hover:text-white rounded-full flex items-center justify-center transition-colors">
-                    <Mail className="w-4 h-4" />
-                  </button>
+                  <a href="https://www.linkedin.com/in/stanley-nathanael-wijaya/" target="_blank">
+                    <button className="w-8 h-8 bg-gray-100 hover:bg-[#3D7BF7] hover:text-white rounded-full flex items-center justify-center transition-colors">
+                      <Linkedin className="w-4 h-4" />
+                    </button>
+                  </a>
+                  <a href="https://github.com/StyNW7" target="_blank">
+                    <button className="w-8 h-8 bg-gray-100 hover:bg-[#3D7BF7] hover:text-white rounded-full flex items-center justify-center transition-colors">
+                      <Github className="w-4 h-4" />
+                    </button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -359,7 +364,7 @@ export default function HomePage() {
               <CardContent className="p-6 text-center">
                 <div className="relative mb-6">
                   <img
-                    src="/Images/placeholder/avatar.png?height=120&width=120"
+                    src="/Images/team/Favian.png?height=120&width=120"
                     alt="Budi Santoso"
                     className="w-24 h-24 rounded-full mx-auto object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -367,18 +372,22 @@ export default function HomePage() {
                     <Play className="w-4 h-4 text-white" />
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Budi Santoso</h3>
-                <p className="text-[#06D6A0] font-medium mb-3">CTO</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Muhammad Favian Jiwani</h3>
+                <p className="text-[#06D6A0] font-medium mb-3">Mobile Developer</p>
                 <p className="text-gray-600 text-sm mb-4">
-                  Teknolog berpengalaman yang mengkhususkan diri dalam pengembangan platform pembelajaran interaktif
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam sit assumenda doloremque nam.
                 </p>
                 <div className="flex justify-center space-x-3">
-                  <button className="w-8 h-8 bg-gray-100 hover:bg-[#06D6A0] hover:text-white rounded-full flex items-center justify-center transition-colors">
-                    <Twitter className="w-4 h-4" />
-                  </button>
-                  <button className="w-8 h-8 bg-gray-100 hover:bg-[#06D6A0] hover:text-white rounded-full flex items-center justify-center transition-colors">
-                    <Mail className="w-4 h-4" />
-                  </button>
+                  <a href="https://www.linkedin.com/in/favjiw/" target="_blank">
+                    <button className="w-8 h-8 bg-gray-100 hover:bg-[#3D7BF7] hover:text-white rounded-full flex items-center justify-center transition-colors">
+                      <Linkedin className="w-4 h-4" />
+                    </button>
+                  </a>
+                  <a href="https://github.com/favjiw" target="_blank">
+                    <button className="w-8 h-8 bg-gray-100 hover:bg-[#3D7BF7] hover:text-white rounded-full flex items-center justify-center transition-colors">
+                      <Github className="w-4 h-4" />
+                    </button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -388,7 +397,7 @@ export default function HomePage() {
               <CardContent className="p-6 text-center">
                 <div className="relative mb-6">
                   <img
-                    src="/Images/placeholder/avatar.png?height=120&width=120"
+                    src="/Images/team/Haikal.png?height=120&width=120"
                     alt="Maya Putri"
                     className="w-24 h-24 rounded-full mx-auto object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -396,18 +405,22 @@ export default function HomePage() {
                     <Heart className="w-4 h-4 text-white" />
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Maya Putri</h3>
-                <p className="text-[#FFB703] font-medium mb-3">Psikolog Anak</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Haikal Iman Firdaus</h3>
+                <p className="text-[#FFB703] font-medium mb-3">Mobile Developer</p>
                 <p className="text-gray-600 text-sm mb-4">
-                  Spesialis psikologi perkembangan anak yang memastikan metode pembelajaran sesuai tahap perkembangan
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam sit assumenda doloremque nam.
                 </p>
                 <div className="flex justify-center space-x-3">
-                  <button className="w-8 h-8 bg-gray-100 hover:bg-[#FFB703] hover:text-white rounded-full flex items-center justify-center transition-colors">
-                    <Linkedin className="w-4 h-4" />
-                  </button>
-                  <button className="w-8 h-8 bg-gray-100 hover:bg-[#FFB703] hover:text-white rounded-full flex items-center justify-center transition-colors">
-                    <Mail className="w-4 h-4" />
-                  </button>
+                  <a href="https://www.linkedin.com/in/haikal-iman-firdaus/" target="_blank">
+                    <button className="w-8 h-8 bg-gray-100 hover:bg-[#3D7BF7] hover:text-white rounded-full flex items-center justify-center transition-colors">
+                      <Linkedin className="w-4 h-4" />
+                    </button>
+                  </a>
+                  <a href="https://github.com/Haikalimanf" target="_blank">
+                    <button className="w-8 h-8 bg-gray-100 hover:bg-[#3D7BF7] hover:text-white rounded-full flex items-center justify-center transition-colors">
+                      <Github className="w-4 h-4" />
+                    </button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -417,7 +430,7 @@ export default function HomePage() {
               <CardContent className="p-6 text-center">
                 <div className="relative mb-6">
                   <img
-                    src="/Images/placeholder/avatar.png?height=120&width=120"
+                    src="/Images/team/Raditya.png?height=120&width=120"
                     alt="Andi Rahman"
                     className="w-24 h-24 rounded-full mx-auto object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -425,18 +438,22 @@ export default function HomePage() {
                     <Star className="w-4 h-4 text-white" />
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Andi Rahman</h3>
-                <p className="text-[#E63946] font-medium mb-3">Creative Director</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Raditya Ramadhan</h3>
+                <p className="text-[#E63946] font-medium mb-3">Backend Developer</p>
                 <p className="text-gray-600 text-sm mb-4">
-                  Desainer kreatif yang menciptakan pengalaman visual menarik dan ramah anak dalam setiap pembelajaran
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam sit assumenda doloremque nam.
                 </p>
                 <div className="flex justify-center space-x-3">
-                  <button className="w-8 h-8 bg-gray-100 hover:bg-[#E63946] hover:text-white rounded-full flex items-center justify-center transition-colors">
-                    <Twitter className="w-4 h-4" />
-                  </button>
-                  <button className="w-8 h-8 bg-gray-100 hover:bg-[#E63946] hover:text-white rounded-full flex items-center justify-center transition-colors">
-                    <Mail className="w-4 h-4" />
-                  </button>
+                  <a href="https://www.linkedin.com/in/radityaaryabudhiramadhan/" target="_blank">
+                    <button className="w-8 h-8 bg-gray-100 hover:bg-[#3D7BF7] hover:text-white rounded-full flex items-center justify-center transition-colors">
+                      <Linkedin className="w-4 h-4" />
+                    </button>
+                  </a>
+                  <a href="https://github.com/xturus138" target="_blank">
+                    <button className="w-8 h-8 bg-gray-100 hover:bg-[#3D7BF7] hover:text-white rounded-full flex items-center justify-center transition-colors">
+                      <Github className="w-4 h-4" />
+                    </button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
