@@ -23,7 +23,7 @@ export default function BacaPage() {
             Kembangkan kemampuan membaca anak dengan metode yang menyenangkan dan interaktif. Dari mengenal huruf hingga
             membaca cerita lengkap.
           </p>
-          <Button className="bg-[#06D6A0] hover:bg-emerald-600 text-white px-8 py-4 text-lg animate-in slide-in-from-bottom-4 duration-700 delay-300">
+          <Button className="bg-[#06D6A0] hover:bg-emerald-600 text-white px-8 py-4 text-lg animate-in slide-in-from-bottom-4 duration-700 delay-300" onClick={() => navigate("/download")}>
             <Play className="w-5 h-5 mr-2" />
             Mulai Membaca
           </Button>
@@ -145,7 +145,7 @@ export default function BacaPage() {
               <p className="text-gray-600 mb-6">
                 Lihat bagaimana anak Anda akan belajar membaca dengan metode yang menyenangkan dan efektif
               </p>
-              <Button className="w-full bg-[#06D6A0] hover:bg-emerald-600 text-white">Tonton Demo</Button>
+              <Button className="w-full bg-[#06D6A0] hover:bg-emerald-600 text-white" onClick={() => navigate("/download")}>Tonton Demo</Button>
             </div>
           </div>
         </div>

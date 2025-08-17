@@ -23,7 +23,7 @@ export default function TulisPage() {
             Kembangkan kemampuan menulis anak dari menggambar garis hingga menulis kata dan kalimat dengan indah.
             Latihan motorik halus yang menyenangkan dan efektif.
           </p>
-          <Button className="bg-[#FFB703] hover:bg-amber-600 text-white px-8 py-4 text-lg animate-in slide-in-from-bottom-4 duration-700 delay-300">
+          <Button className="bg-[#FFB703] hover:bg-amber-600 text-white px-8 py-4 text-lg animate-in slide-in-from-bottom-4 duration-700 delay-300" onClick={() => navigate("/download")}>
             <Play className="w-5 h-5 mr-2" />
             Mulai Menulis
           </Button>
@@ -141,7 +141,7 @@ export default function TulisPage() {
               <p className="text-gray-600 mb-6">
                 Lihat bagaimana anak akan berlatih menulis dengan panduan digital yang responsif
               </p>
-              <Button className="w-full bg-[#FFB703] hover:bg-amber-600 text-white">Coba Latihan</Button>
+              <Button className="w-full bg-[#FFB703] hover:bg-amber-600 text-white" onClick={() => navigate("/download")}>Coba Latihan</Button>
             </div>
           </div>
         </div>

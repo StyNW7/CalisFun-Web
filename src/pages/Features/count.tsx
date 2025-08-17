@@ -23,7 +23,8 @@ export default function HitungPage() {
             Kembangkan kemampuan matematika dasar anak dengan cara yang menyenangkan. Dari mengenal angka hingga operasi
             hitung sederhana.
           </p>
-          <Button className="bg-[#E63946] hover:bg-red-600 text-white px-8 py-4 text-lg animate-in slide-in-from-bottom-4 duration-700 delay-300">
+          <Button className="bg-[#E63946] hover:bg-red-600 text-white px-8 py-4 text-lg animate-in slide-in-from-bottom-4 duration-700 delay-300"
+          onClick={() => navigate("/download")}>
             <Play className="w-5 h-5 mr-2" />
             Mulai Berhitung
           </Button>
@@ -141,7 +142,7 @@ export default function HitungPage() {
               <p className="text-gray-600 mb-6">
                 Lihat bagaimana anak akan belajar berhitung dengan tools interaktif yang menyenangkan
               </p>
-              <Button className="w-full bg-[#E63946] hover:bg-red-600 text-white">Coba Kalkulator</Button>
+              <Button className="w-full bg-[#E63946] hover:bg-red-600 text-white" onClick={() => navigate("/download")}>Coba Kalkulator</Button>
             </div>
           </div>
         </div>

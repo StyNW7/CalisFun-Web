@@ -26,8 +26,12 @@ import {
   Send,
   HelpCircle,
 } from "lucide-react"
+import { useNavigate } from "react-router"
 
 export default function HomePage() {
+
+  const navigate = useNavigate()
+
   return (
     <div className="min-h-screen">
 
@@ -636,7 +640,8 @@ export default function HomePage() {
               <p className="text-xl mb-8 text-blue-100">
                 Yang telah merasakan manfaat belajar calistung dengan CalisFun
               </p>
-              <Button size="lg" className="bg-[#FFB703] hover:bg-[#F59E0B] text-black font-semibold px-8 py-4 text-lg">
+              <Button size="lg" className="bg-[#FFB703] hover:bg-[#F59E0B] text-black font-semibold px-8 py-4 text-lg"
+              onClick={() => navigate("/download")}>
                 <Play className="w-5 h-5 mr-2" />
                 Mulai Gratis Sekarang
               </Button>
@@ -759,7 +764,7 @@ export default function HomePage() {
           {/* FAQ CTA */}
           <div className="text-center mt-12">
             <p className="text-gray-600 mb-6">Masih ada pertanyaan lain?</p>
-            <Button className="bg-[#3D7BF7] hover:bg-[#2563EB] text-white px-8 py-3">
+            <Button className="bg-[#3D7BF7] hover:bg-[#2563EB] text-white px-8 py-3" onClick={() => navigate("/contact")}>
               <MessageCircle className="w-5 h-5 mr-2" />
               Hubungi Tim Support
             </Button>
@@ -952,6 +957,7 @@ export default function HomePage() {
                 <Button
                   variant="outline"
                   className="border-[#3D7BF7] text-[#3D7BF7] hover:bg-[#3D7BF7] hover:text-white bg-transparent"
+                  onClick={() => navigate("/contact")}
                 >
                   Mulai Chat
                 </Button>
@@ -968,6 +974,7 @@ export default function HomePage() {
                 <Button
                   variant="outline"
                   className="border-[#06D6A0] text-[#06D6A0] hover:bg-[#06D6A0] hover:text-white bg-transparent"
+                  onClick={() => navigate("/contact")}
                 >
                   Chat WhatsApp
                 </Button>
@@ -984,6 +991,7 @@ export default function HomePage() {
                 <Button
                   variant="outline"
                   className="border-[#FFB703] text-[#FFB703] hover:bg-[#FFB703] hover:text-white bg-transparent"
+                  onClick={() => navigate("/contact")}
                 >
                   Lihat FAQ
                 </Button>
