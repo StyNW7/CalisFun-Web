@@ -16,8 +16,12 @@ import {
   TrendingUp,
   CheckCircle,
 } from "lucide-react"
+import { useNavigate } from "react-router"
 
 export default function AboutPage() {
+
+  const navigate = useNavigate()
+
   const sdgGoals = [
     {
       number: 4,
@@ -324,12 +328,13 @@ export default function AboutPage() {
             Mulai perjalanan pembelajaran yang menyenangkan untuk anak Anda bersama CalisFun
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-[#3D7BF7] hover:bg-gray-100 px-8 py-3 text-lg font-semibold">
+            <Button className="bg-white text-[#3D7BF7] hover:bg-gray-100 px-8 py-3 text-lg font-semibold" onClick={() => navigate("/download")}>
               Download Aplikasi
             </Button>
             <Button
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-[#3D7BF7] px-8 py-3 text-lg font-semibold bg-transparent"
+              onClick={() => navigate("/contact")}
             >
               Pelajari Lebih Lanjut
             </Button>

@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge"
 import {
   Gamepad2,
   BarChart3,
-  User,
   Settings,
   Home,
   X,
@@ -47,24 +46,12 @@ export default function DashboardSidebar({ isOpen, setIsOpen, isMobile }: Dashbo
       badge: null,
     },
     {
-      title: "Papan Peringkat",
-      href: "/admin/leaderboard",
-      icon: <User className="h-5 w-5" />,
-      badge: "New",
-    },
-    {
       title: "Pengaturan",
       href: "/admin/settings",
       icon: <Settings className="h-5 w-5" />,
       badge: null,
     },
   ]
-
-  const userStats = {
-    level: 15,
-    points: 2450,
-    rank: "Penjelajah Budaya",
-  }
 
   return (
     <>
@@ -170,27 +157,9 @@ export default function DashboardSidebar({ isOpen, setIsOpen, isMobile }: Dashbo
                   </div>
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-800">Stanley Wijaya</h3>
-                    <p className="text-sm text-gray-600">{userStats.rank}</p>
                   </div>
                 </div>
-
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Level</span>
-                    <Badge className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">{userStats.level}</Badge>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Poin</span>
-                    <span className="text-sm font-semibold text-blue-600">{userStats.points.toLocaleString()}</span>
-                  </div>
-                  <div className="w-full bg-blue-100 rounded-full h-2">
-                    <div
-                      className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full transition-all duration-300"
-                      style={{ width: "75%" }}
-                    />
-                  </div>
-                  <p className="text-xs text-gray-500 text-center">550 poin lagi ke level 16</p>
-                </div>
+                
               </motion.div>
             )}
           </AnimatePresence>

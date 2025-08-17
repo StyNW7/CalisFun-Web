@@ -45,6 +45,10 @@ import ManageUsersPage from "./pages/Admin/Users/page";
 import UserDetailPage from "./pages/Admin/Users/[id]/page";
 import AdminOverviewPage from "./pages/Admin/overview";
 
+import ManageQuestionsPage from "./pages/Admin/Questions/page";
+import CreateQuestionPage from "./pages/Admin/Questions/create/page";
+import DashboardLayout from "./pages/Admin/layout";
+
 function App() {
 
   const [loading, setLoading] = useState(true);
@@ -94,8 +98,13 @@ function App() {
             {/* Admin Pages */}
                 
             <Route path="/admin/overview" element={<AdminOverviewPage/>} />
+
             <Route path="/admin/manage-user" element={<ManageUsersPage/>} />
             <Route path="/admin/user/:id" element={<UserDetailPage/>} />
+
+            <Route path="/admin/manage-question" element={<DashboardLayout children={<ManageQuestionsPage/>} />}/>
+            <Route path="/admin/questions/create" element={<DashboardLayout children={<CreateQuestionPage/>} />}/>
+            {/* <Route path="/admin/questions/create" element={<CreateQuestionPage/>} /> */}
 
             <Route path="/admin-login" element={<AdminLogin/>} />
             <Route path="*" element={<NotFoundPage />} />

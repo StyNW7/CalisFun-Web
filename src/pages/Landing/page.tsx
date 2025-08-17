@@ -177,7 +177,7 @@ export default function HomePage() {
                 <div className="space-y-3 mb-8">
                   <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
                     <Star className="w-4 h-4 text-[#06D6A0]" />
-                    <span>200+ Cerita Interaktif</span>
+                    <span>Ada Banyak Kategori</span>
                   </div>
                   <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
                     <Users className="w-4 h-4 text-[#06D6A0]" />
@@ -185,7 +185,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
                     <Clock className="w-4 h-4 text-[#06D6A0]" />
-                    <span>15 Menit per Sesi</span>
+                    <span>Belajar Sesuai Waktumu</span>
                   </div>
                 </div>
                 <a href="/baca">
@@ -211,7 +211,7 @@ export default function HomePage() {
                 <div className="space-y-3 mb-8">
                   <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
                     <Star className="w-4 h-4 text-[#FFB703]" />
-                    <span>Panduan Tracing Digital</span>
+                    <span>Belajar Secara Bertahap</span>
                   </div>
                   <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
                     <Users className="w-4 h-4 text-[#FFB703]" />
@@ -219,7 +219,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
                     <Clock className="w-4 h-4 text-[#FFB703]" />
-                    <span>Latihan Harian</span>
+                    <span>Ada Banyak Mode</span>
                   </div>
                 </div>
                 <a href="/tulis">
@@ -245,7 +245,7 @@ export default function HomePage() {
                 <div className="space-y-3 mb-8">
                   <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
                     <Star className="w-4 h-4 text-[#E63946]" />
-                    <span>Matematika Visual</span>
+                    <span>Berbasis Kuis</span>
                   </div>
                   <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
                     <Users className="w-4 h-4 text-[#E63946]" />
@@ -1126,7 +1126,7 @@ export default function HomePage() {
                 <div className="relative mx-auto w-80 h-96 bg-gradient-to-b from-gray-900 to-black rounded-3xl p-2 shadow-2xl">
                   <div className="w-full h-full bg-white rounded-2xl overflow-hidden relative">
                     <img
-                      src="/placeholder.svg?height=400&width=300"
+                      src="/Images/logo.png?height=400&width=300"
                       alt="CalisFun Mobile App"
                       className="w-full h-full object-cover"
                     />
