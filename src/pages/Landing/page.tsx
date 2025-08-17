@@ -1069,25 +1069,19 @@ export default function HomePage() {
                 </button>
 
                 <button
-                  onClick={() => {
-                    // Create and download IPA file
-                    const link = document.createElement("a")
-                    link.href = "/placeholder.ipa"
-                    link.download = "CalisFun-v1.2.3.ipa"
-                    document.body.appendChild(link)
-                    link.click()
-                    document.body.removeChild(link)
-                  }}
-                  className="group bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-3"
+                  disabled
+                  className="group bg-gray-600 text-gray-300 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center space-x-3 cursor-not-allowed opacity-75"
                 >
-                  <div className="w-8 h-8 bg-[#FFB703] rounded-lg flex items-center justify-center">
-                    <Star className="w-4 h-4 text-white" />
+                  <div className="w-8 h-8 bg-gray-500 rounded-lg flex items-center justify-center">
+                    <Star className="w-4 h-4 text-gray-300" />
                   </div>
                   <div className="text-left">
-                    <div className="text-xs text-gray-300">Download untuk</div>
+                    <div className="text-xs text-gray-400">Coming Soon untuk</div>
                     <div className="text-lg font-bold">iOS</div>
                   </div>
-                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <div className="w-5 h-5 flex items-center justify-center">
+                    <div className="w-2 h-2 bg-[#FFB703] rounded-full animate-pulse"></div>
+                  </div>
                 </button>
               </div>
 

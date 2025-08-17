@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { PenTool, Target, Users, Star, Play, CheckCircle, Award, Palette } from "lucide-react"
+import { useNavigate } from "react-router"
 
 export default function TulisPage() {
+
+  const navigate = useNavigate()
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-amber-50">
 
@@ -285,10 +289,11 @@ export default function TulisPage() {
             Bergabunglah dengan ribuan anak yang sudah mahir menulis dengan indah
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-[#FFB703] hover:bg-gray-100 px-8 py-4 text-lg">Download Aplikasi</Button>
+            <Button className="bg-white text-[#FFB703] hover:bg-gray-100 px-8 py-4 text-lg"  onClick={() => navigate("/download")}>Download Aplikasi</Button>
             <Button
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-[#FFB703] px-8 py-4 text-lg bg-transparent"
+              onClick={() => navigate("/download")}
             >
               Coba Gratis
             </Button>

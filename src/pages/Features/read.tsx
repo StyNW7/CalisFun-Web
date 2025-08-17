@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { BookOpen, Target, Users, Star, Play, CheckCircle, Award, Heart } from "lucide-react"
+import { useNavigate } from "react-router"
 
 export default function BacaPage() {
+
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
 
@@ -291,10 +295,11 @@ export default function BacaPage() {
             Bergabunglah dengan ribuan anak yang sudah mahir membaca bersama CalisFun
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-[#06D6A0] hover:bg-gray-100 px-8 py-4 text-lg">Download Aplikasi</Button>
+            <Button className="bg-white text-[#06D6A0] hover:bg-gray-100 px-8 py-4 text-lg"  onClick={() => navigate("/download")}>Download Aplikasi</Button>
             <Button
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-[#06D6A0] px-8 py-4 text-lg bg-transparent"
+               onClick={() => navigate("/download")}
             >
               Coba Gratis
             </Button>

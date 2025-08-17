@@ -24,7 +24,7 @@ export default function DownloadPage() {
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#3D7BF7] via-[#2563EB] to-[#1D4ED8] text-white overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1200')] opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/Images/logo.png?height=800&width=1300')] opacity-10 bg-no-repeat"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
           <div className="text-center">
             <div className="animate-in fade-in duration-1000">
@@ -89,29 +89,24 @@ export default function DownloadPage() {
                 </button>
 
                 <button
-                  onClick={() => {
-                    const link = document.createElement("a")
-                    link.href = "/placeholder.ipa"
-                    link.download = "CalisFun-v1.2.3.ipa"
-                    document.body.appendChild(link)
-                    link.click()
-                    document.body.removeChild(link)
-                  }}
-                  className="group bg-black hover:bg-gray-800 text-white px-12 py-6 rounded-2xl font-bold text-xl transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-4 shadow-2xl"
+                  disabled
+                  className="group bg-gray-600 text-gray-300 px-12 py-6 rounded-2xl font-bold text-xl transition-all duration-300 flex items-center justify-center space-x-4 shadow-2xl cursor-not-allowed opacity-75"
                 >
-                  <div className="w-12 h-12 bg-[#FFB703] rounded-xl flex items-center justify-center">
-                    <Star className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-gray-500 rounded-xl flex items-center justify-center">
+                    <Star className="w-6 h-6 text-gray-300" />
                   </div>
                   <div className="text-left">
-                    <div className="text-sm text-gray-300">Download untuk</div>
+                    <div className="text-sm text-gray-400">Coming Soon untuk</div>
                     <div className="text-2xl font-bold">iOS</div>
                   </div>
-                  <ChevronRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <div className="w-3 h-3 bg-[#FFB703] rounded-full animate-pulse"></div>
+                  </div>
                 </button>
               </div>
 
               <p className="text-blue-200 text-lg">
-                Kompatibel dengan Android 7.0+ dan iOS 12.0+ • Ukuran: 50MB • Gratis selamanya
+                Kompatibel dengan Android 7.0+ • iOS Coming Soon • Ukuran: 50MB • Gratis selamanya
               </p>
             </div>
           </div>
@@ -136,7 +131,7 @@ export default function DownloadPage() {
               <div className="relative mx-auto w-64 h-80 bg-gradient-to-b from-gray-900 to-black rounded-3xl p-2 shadow-2xl mb-6">
                 <div className="w-full h-full bg-white rounded-2xl overflow-hidden">
                   <img
-                    src="/placeholder.svg?height=320&width=240"
+                    src="/Images/mockup/home.png?height=320&width=240"
                     alt="Home Screen"
                     className="w-full h-full object-cover"
                   />
@@ -151,7 +146,7 @@ export default function DownloadPage() {
               <div className="relative mx-auto w-64 h-80 bg-gradient-to-b from-gray-900 to-black rounded-3xl p-2 shadow-2xl mb-6">
                 <div className="w-full h-full bg-white rounded-2xl overflow-hidden">
                   <img
-                    src="/placeholder.svg?height=320&width=240"
+                    src="/Images/mockup/learn.png?height=320&width=240"
                     alt="Learning Screen"
                     className="w-full h-full object-cover"
                   />
@@ -166,7 +161,7 @@ export default function DownloadPage() {
               <div className="relative mx-auto w-64 h-80 bg-gradient-to-b from-gray-900 to-black rounded-3xl p-2 shadow-2xl mb-6">
                 <div className="w-full h-full bg-white rounded-2xl overflow-hidden">
                   <img
-                    src="/placeholder.svg?height=320&width=240"
+                    src="/Images/mockup/profile.png?height=320&width=240"
                     alt="Progress Screen"
                     className="w-full h-full object-cover"
                   />
@@ -343,8 +338,16 @@ export default function DownloadPage() {
             </Card>
 
             {/* iOS Requirements */}
-            <Card className="border-0 shadow-lg bg-gradient-to-br from-[#FFB703]/5 to-[#FFB703]/10">
-              <CardContent className="p-8">
+            <Card className="border-0 shadow-lg bg-gradient-to-br from-[#FFB703]/5 to-[#FFB703]/10 relative">
+              <div className="absolute inset-0 bg-gray-900/20 rounded-lg flex items-center justify-center z-10">
+                <div className="bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-[#FFB703] rounded-full animate-pulse"></div>
+                    <span className="text-gray-800 font-semibold">Coming Soon untuk iOS</span>
+                  </div>
+                </div>
+              </div>
+              <CardContent className="p-8 opacity-60">
                 <div className="flex items-center space-x-4 mb-8">
                   <div className="w-16 h-16 bg-[#FFB703] rounded-2xl flex items-center justify-center">
                     <Tablet className="w-8 h-8 text-white" />
@@ -380,18 +383,11 @@ export default function DownloadPage() {
 
                 <div className="mt-8">
                   <button
-                    onClick={() => {
-                      const link = document.createElement("a")
-                      link.href = "/placeholder.ipa"
-                      link.download = "CalisFun-v1.2.3.ipa"
-                      document.body.appendChild(link)
-                      link.click()
-                      document.body.removeChild(link)
-                    }}
-                    className="w-full bg-[#FFB703] hover:bg-[#F59E0B] text-black py-4 rounded-xl font-semibold text-lg transition-colors flex items-center justify-center space-x-2"
+                    disabled
+                    className="w-full bg-gray-400 text-gray-600 py-4 rounded-xl font-semibold text-lg transition-colors flex items-center justify-center space-x-2 cursor-not-allowed"
                   >
-                    <Download className="w-5 h-5" />
-                    <span>Download untuk iOS</span>
+                    <div className="w-3 h-3 bg-[#FFB703] rounded-full animate-pulse"></div>
+                    <span>Coming Soon untuk iOS</span>
                   </button>
                 </div>
               </CardContent>
@@ -458,7 +454,16 @@ export default function DownloadPage() {
             </div>
 
             {/* iOS Installation */}
-            <div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gray-900/10 rounded-lg flex items-center justify-center z-10">
+                <div className="bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-[#FFB703] rounded-full animate-pulse"></div>
+                    <span className="text-gray-800 font-semibold">Coming Soon untuk iOS</span>
+                  </div>
+                </div>
+              </div>
+              <div className="opacity-50">
               <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
                 <div className="w-8 h-8 bg-[#FFB703] rounded-lg flex items-center justify-center mr-3">
                   <Tablet className="w-4 h-4 text-white" />
@@ -498,6 +503,7 @@ export default function DownloadPage() {
                     <p className="text-gray-600 text-sm">Buka aplikasi CalisFun dari home screen dan mulai belajar</p>
                   </CardContent>
                 </Card>
+                </div>
               </div>
             </div>
           </div>
@@ -588,19 +594,14 @@ export default function DownloadPage() {
             </button>
 
             <button
-              onClick={() => {
-                const link = document.createElement("a")
-                link.href = "/placeholder.ipa"
-                link.download = "CalisFun-v1.2.3.ipa"
-                document.body.appendChild(link)
-                link.click()
-                document.body.removeChild(link)
-              }}
-              className="group bg-black hover:bg-gray-800 text-white px-12 py-6 rounded-2xl font-bold text-xl transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-4"
+              disabled
+              className="group bg-gray-600 text-gray-300 px-12 py-6 rounded-2xl font-bold text-xl transition-all duration-300 flex items-center justify-center space-x-4 cursor-not-allowed opacity-75"
             >
-              <Download className="w-6 h-6" />
-              <span>Download iOS</span>
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              <div className="w-3 h-3 bg-[#FFB703] rounded-full animate-pulse"></div>
+              <span>iOS Coming Soon</span>
+              <div className="w-6 h-6 flex items-center justify-center">
+                <div className="w-2 h-2 bg-[#FFB703] rounded-full animate-pulse"></div>
+              </div>
             </button>
           </div>
 
