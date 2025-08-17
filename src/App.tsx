@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 import { useState } from "react";
-import { Toaster } from "react-hot-toast";
+import { Toaster } from "@/components/ui/sonner";
 
 // Layout
 
@@ -48,6 +48,7 @@ import AdminOverviewPage from "./pages/Admin/overview";
 import ManageQuestionsPage from "./pages/Admin/Questions/page";
 import CreateQuestionPage from "./pages/Admin/Questions/create/page";
 import DashboardLayout from "./pages/Admin/layout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
 
@@ -97,14 +98,53 @@ function App() {
 
             {/* Admin Pages */}
                 
-            <Route path="/admin/overview" element={<AdminOverviewPage/>} />
+            <Route
+              path="/admin/overview"
+              element={
+                <ProtectedRoute adminOnly>
+                  <AdminOverviewPage />
+                </ProtectedRoute>
+              }
+            />
 
-            <Route path="/admin/manage-user" element={<ManageUsersPage/>} />
-            <Route path="/admin/user/:id" element={<UserDetailPage/>} />
+            <Route
+              path="/admin/manage-user"
+              element={
+                <ProtectedRoute adminOnly>
+                  <ManageUsersPage />
+                </ProtectedRoute>
+              }
+            />
 
-            <Route path="/admin/manage-question" element={<DashboardLayout children={<ManageQuestionsPage/>} />}/>
-            <Route path="/admin/questions/create" element={<DashboardLayout children={<CreateQuestionPage/>} />}/>
-            {/* <Route path="/admin/questions/create" element={<CreateQuestionPage/>} /> */}
+            <Route
+              path="/admin/user/:id"
+              element={
+                <ProtectedRoute adminOnly>
+                  <UserDetailPage />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/admin/manage-question"
+              element={
+                <ProtectedRoute adminOnly>
+                  <DashboardLayout>
+                    <ManageQuestionsPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/admin/questions/create"
+              element={
+                <ProtectedRoute adminOnly>
+                  <DashboardLayout>
+                    <CreateQuestionPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }/>
 
             <Route path="/admin-login" element={<AdminLogin/>} />
             <Route path="*" element={<NotFoundPage />} />

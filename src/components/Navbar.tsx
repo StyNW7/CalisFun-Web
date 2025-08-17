@@ -3,8 +3,11 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, BookOpen, PenTool, Calculator } from "lucide-react"
+import { useAuth } from "@/context/AuthContext"
 
 export default function Navigation() {
+
+  const {user} = useAuth()
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -64,6 +67,13 @@ export default function Navigation() {
             <a href="/download">
               <Button className="bg-[#3D7BF7] hover:bg-[#2563EB] text-white">Unduh Aplikasi</Button>
             </a>
+            {user && 
+              <a href="/admin/overview">
+                <Button className="w-full border-2 bg-white border-[#3D7BF7] text-[#3D7BF7] hover:bg-[#3D7BF7] hover:text-white transition-colors duration-300">
+                  Admin Dashboard
+                </Button>
+              </a>
+            }
           </div>
 
           {/* Mobile menu button */}
@@ -101,6 +111,15 @@ export default function Navigation() {
                   <Button className="w-full bg-[#3D7BF7] hover:bg-[#2563EB] text-white">Unduh Aplikasi</Button>
                 </a>
               </div>
+              {user && 
+                <div className="px-3 py-2">
+                  <a href="/admin/overview">
+                    <Button className="w-full border-2 bg-white border-[#3D7BF7] text-[#3D7BF7] hover:bg-[#3D7BF7] hover:text-white transition-colors duration-300">
+                      Admin Dashboard
+                    </Button>
+                  </a>
+                </div>
+              }
             </div>
           </div>
         )}

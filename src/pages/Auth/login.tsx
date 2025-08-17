@@ -1,32 +1,39 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Eye, EyeOff, Shield, Lock, User } from "lucide-react"
+import useLogin from "@/hooks/useLogin"
+import { toast } from "sonner"
 
 export default function AdminLogin() {
   const [showPassword, setShowPassword] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
+  const { handleLogin, isLoading, error } = useLogin()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsLoading(true)
-    // Simulate login process
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    setIsLoading(false)
-    // Handle login logic here
+    
+    // Basic validation
+    if (!email || !password) {
+      toast.error("Validation Form Error!")
+      return
+    }
+
+    try {
+      await handleLogin(email, password)
+      toast.success("Login Success")
+    } catch {
+      toast.error("Login Failed")
+    }
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-
       <div className="flex items-center justify-center min-h-[calc(100vh-4rem)] px-4 py-12">
         <div className="w-full max-w-md">
           {/* Animated Background Elements */}
@@ -51,6 +58,12 @@ export default function AdminLogin() {
             </CardHeader>
 
             <CardContent>
+              {error && (
+                <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md animate-in fade-in-0">
+                  {error}
+                </div>
+              )}
+              
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2 animate-in slide-in-from-left-2 duration-500 delay-500">
                   <Label htmlFor="email" className="text-sm font-medium text-gray-700 flex items-center">
@@ -129,7 +142,6 @@ export default function AdminLogin() {
           </div>
         </div>
       </div>
-
     </div>
   )
 }

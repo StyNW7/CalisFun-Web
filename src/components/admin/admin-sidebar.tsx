@@ -15,6 +15,7 @@ import {
   FileQuestion,
 } from "lucide-react"
 import { useLocation } from "react-router"
+import { useAuth } from "@/context/AuthContext"
 
 interface DashboardSidebarProps {
   isOpen: boolean
@@ -24,6 +25,7 @@ interface DashboardSidebarProps {
 
 export default function DashboardSidebar({ isOpen, setIsOpen, isMobile }: DashboardSidebarProps) {
 
+  const {logout} = useAuth()
   const pathname = useLocation().pathname
 
   const navigationItems = [
@@ -228,9 +230,9 @@ export default function DashboardSidebar({ isOpen, setIsOpen, isMobile }: Dashbo
           <div className="p-4 border-t border-blue-100 space-y-1 flex-shrink-0">
 
             <a
-              href="/login"
+              href="/admin-login"
               className="flex items-center gap-3 px-3 py-3 rounded-xl text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 group"
-            //   onClick={}
+              onClick={logout}
             >
               <LogOut className="h-5 w-5 text-gray-500 group-hover:text-blue-600 flex-shrink-0" />
               <AnimatePresence>
