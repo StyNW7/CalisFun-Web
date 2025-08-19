@@ -331,7 +331,7 @@ export default function HomePage() {
               <CardContent className="p-6 text-center">
                 <div className="relative mb-6">
                   <img
-                    src="/Images/team/Stanley.png?height=120&width=120"
+                    src="/Images/team/Stanley.jpg?height=120&width=120"
                     alt="Dr. Sari Wijaya"
                     className="w-24 h-24 rounded-full mx-auto object-cover group-hover:scale-105 transition-transform duration-300"
                   />

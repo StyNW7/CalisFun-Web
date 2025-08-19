@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Plus, Search, Edit, BookOpen, PenTool, Hash, Type, LetterTextIcon } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Badge } from "@/components/ui/badge"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { useState } from "react";
+import { Plus, Search, Edit, BookOpen, PenTool, Hash, Type, LetterTextIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import {
   Dialog,
   DialogContent,
@@ -14,84 +14,82 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-
-// Mock data for questions
-const mockReadQuestions = [
-  { id: 1, category: "letter", level: 1, question: "A" },
-  { id: 2, category: "letter", level: 2, question: "B" },
-  { id: 3, category: "word", level: 1, question: "Belajar" },
-  { id: 4, category: "word", level: 2, question: "Membaca" },
-  { id: 5, category: "number", level: 1, question: "12" },
-  { id: 6, category: "number", level: 3, question: "456" },
-]
-
-const mockWriteQuestions = [
-  { id: 7, category: "letter", level: 1, question: "C" },
-  { id: 8, category: "letter", level: 2, question: "D" },
-  { id: 9, category: "word", level: 1, question: "Menulis" },
-  { id: 10, category: "word", level: 2, question: "Belajar" },
-  { id: 11, category: "number", level: 1, question: "789" },
-  { id: 12, category: "number", level: 2, question: "101" },
-]
+} from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import useQuestions from "@/hooks/useQuestion";
 
 export default function ManageQuestionsPage() {
-  const [activeTab, setActiveTab] = useState<"read" | "write">("read")
-  const [searchTerm, setSearchTerm] = useState("")
-  const [selectedCategory, setSelectedCategory] = useState<string>("all")
-  const [selectedLevel, setSelectedLevel] = useState<string>("all")
-  const [editingQuestion, setEditingQuestion] = useState<any>(null)
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+  
+  const [activeTab, setActiveTab] = useState<"read" | "write">("read");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [selectedLevel, setSelectedLevel] = useState<string>("all");
+  const [editingQuestion, setEditingQuestion] = useState<any>(null);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
-  const currentQuestions = activeTab === "read" ? mockReadQuestions : mockWriteQuestions
+  const {
+    readingQuestions,
+    writingQuestions,
+    loading,
+    updateQuestion,
+  } = useQuestions();
+
+  const currentQuestions = activeTab === "read" ? readingQuestions : writingQuestions;
 
   const filteredQuestions = currentQuestions.filter((question) => {
-    const matchesSearch = question.question.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = selectedCategory === "all" || question.category === selectedCategory
-    const matchesLevel = selectedLevel === "all" || question.level.toString() === selectedLevel
-    return matchesSearch && matchesCategory && matchesLevel
-  })
+    const matchesSearch = question.word.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === "all" || question.category === selectedCategory;
+    const matchesLevel = selectedLevel === "all" || question.level.toString() === selectedLevel;
+    return matchesSearch && matchesCategory && matchesLevel;
+  });
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case "letter":
-        return <LetterTextIcon className="h-4 w-4" />
+        return <LetterTextIcon className="h-4 w-4" />;
       case "word":
-        return <Type className="h-4 w-4" />
+        return <Type className="h-4 w-4" />;
       case "number":
-        return <Hash className="h-4 w-4" />
+        return <Hash className="h-4 w-4" />;
       default:
-        return <Type className="h-4 w-4" />
+        return <Type className="h-4 w-4" />;
     }
-  }
+  };
 
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "letter":
-        return "bg-[#06D6A0]/10 text-[#06D6A0] border-[#06D6A0]/20"
+        return "bg-[#06D6A0]/10 text-[#06D6A0] border-[#06D6A0]/20";
       case "word":
-        return "bg-[#FFB703]/10 text-[#FFB703] border-[#FFB703]/20"
+        return "bg-[#FFB703]/10 text-[#FFB703] border-[#FFB703]/20";
       case "number":
-        return "bg-[#E63946]/10 text-[#E63946] border-[#E63946]/20"
+        return "bg-[#E63946]/10 text-[#E63946] border-[#E63946]/20";
       default:
-        return "bg-gray-100 text-gray-600 border-gray-200"
+        return "bg-gray-100 text-gray-600 border-gray-200";
     }
-  }
+  };
 
   const handleEditQuestion = (question: any) => {
-    setEditingQuestion({ ...question })
-    setIsEditModalOpen(true)
-  }
+    setEditingQuestion({ ...question });
+    setIsEditModalOpen(true);
+  };
 
-  const handleSaveEdit = () => {
-    // Here you would typically save to database
-    console.log("[v0] Saving edited question:", editingQuestion)
-    setIsEditModalOpen(false)
-    setEditingQuestion(null)
-  }
+  const handleSaveEdit = async () => {
+    if (!editingQuestion) return;
+    
+    const success = await updateQuestion(
+      activeTab,
+      editingQuestion._id,
+      { word: editingQuestion.word }
+    );
+
+    if (success) {
+      setIsEditModalOpen(false);
+      setEditingQuestion(null);
+    }
+  };
 
   return (
     <div className="p-6 space-y-6 animate-in fade-in-50 duration-500">
@@ -120,7 +118,7 @@ export default function ManageQuestionsPage() {
               <BookOpen className="h-6 w-6 text-[#06D6A0]" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-900">{mockReadQuestions.length}</p>
+              <p className="text-2xl font-bold text-gray-900">{readingQuestions.length}</p>
               <p className="text-sm text-gray-600 font-medium">Soal Baca</p>
             </div>
           </div>
@@ -132,7 +130,7 @@ export default function ManageQuestionsPage() {
               <PenTool className="h-6 w-6 text-[#FFB703]" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-900">{mockWriteQuestions.length}</p>
+              <p className="text-2xl font-bold text-gray-900">{writingQuestions.length}</p>
               <p className="text-sm text-gray-600 font-medium">Soal Tulis</p>
             </div>
           </div>
@@ -145,7 +143,7 @@ export default function ManageQuestionsPage() {
             </div>
             <div>
               <p className="text-2xl font-bold text-gray-900">
-                {[...mockReadQuestions, ...mockWriteQuestions].filter((q) => q.category === "letter").length}
+                {[...readingQuestions, ...writingQuestions].filter((q) => q.category === "letter").length}
               </p>
               <p className="text-sm text-gray-600 font-medium">Soal Huruf</p>
             </div>
@@ -159,7 +157,7 @@ export default function ManageQuestionsPage() {
             </div>
             <div>
               <p className="text-2xl font-bold text-gray-900">
-                {[...mockReadQuestions, ...mockWriteQuestions].filter((q) => q.category === "number").length}
+                {[...readingQuestions, ...writingQuestions].filter((q) => q.category === "number").length}
               </p>
               <p className="text-sm text-gray-600 font-medium">Soal Angka</p>
             </div>
@@ -180,7 +178,7 @@ export default function ManageQuestionsPage() {
           >
             <div className="flex items-center justify-center gap-2">
               <BookOpen className="h-4 w-4" />
-              Soal Baca ({mockReadQuestions.length})
+              Soal Baca ({readingQuestions.length})
             </div>
             {activeTab === "read" && (
               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#06D6A0] to-[#06D6A0]/50 animate-in slide-in-from-left-full duration-300" />
@@ -196,7 +194,7 @@ export default function ManageQuestionsPage() {
           >
             <div className="flex items-center justify-center gap-2">
               <PenTool className="h-4 w-4" />
-              Soal Tulis ({mockWriteQuestions.length})
+              Soal Tulis ({writingQuestions.length})
             </div>
             {activeTab === "write" && (
               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#FFB703] to-[#FFB703]/50 animate-in slide-in-from-left-full duration-300" />
@@ -260,7 +258,7 @@ export default function ManageQuestionsPage() {
             <TableBody>
               {filteredQuestions.map((question, index) => (
                 <TableRow
-                  key={question.id}
+                  key={question._id}
                   className="hover:bg-gray-50/50 transition-colors duration-150"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
@@ -279,7 +277,7 @@ export default function ManageQuestionsPage() {
                   </TableCell>
                   <TableCell>
                     <div className="font-mono text-lg font-semibold text-gray-900 bg-gray-50 px-3 py-1 rounded-lg inline-block">
-                      {question.question}
+                      {question.word}
                     </div>
                   </TableCell>
                   <TableCell className="text-right">
@@ -292,14 +290,6 @@ export default function ManageQuestionsPage() {
                       >
                         <Edit className="h-4 w-4" />
                       </Button>
-                      {/* <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleDeleteQuestion(question.id)}
-                        className="hover:bg-red-50 hover:border-red-200 hover:text-red-600 transition-all duration-200"
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </Button> */}
                     </div>
                   </TableCell>
                 </TableRow>
@@ -362,8 +352,8 @@ export default function ManageQuestionsPage() {
                 </Label>
                 <Textarea
                   id="question"
-                  value={editingQuestion.question}
-                  onChange={(e) => setEditingQuestion({ ...editingQuestion, question: e.target.value })}
+                  value={editingQuestion.word}
+                  onChange={(e) => setEditingQuestion({ ...editingQuestion, word: e.target.value })}
                   placeholder="Masukkan soal..."
                   className="min-h-20 font-mono text-lg border-gray-200 focus:border-[#3D7BF7] focus:ring-[#3D7BF7]/20"
                 />
@@ -377,13 +367,14 @@ export default function ManageQuestionsPage() {
             </Button>
             <Button
               onClick={handleSaveEdit}
+              disabled={loading.updating}
               className="bg-gradient-to-r from-[#3D7BF7] to-[#06D6A0] hover:from-[#3D7BF7]/90 hover:to-[#06D6A0]/90 text-white"
             >
-              Simpan Perubahan
+              {loading.updating ? "Menyimpan..." : "Simpan Perubahan"}
             </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
     </div>
-  )
+  );
 }

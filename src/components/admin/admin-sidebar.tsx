@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge"
 import {
   Gamepad2,
   BarChart3,
-  Settings,
   Home,
   X,
   ChevronLeft,
@@ -45,12 +44,6 @@ export default function DashboardSidebar({ isOpen, setIsOpen, isMobile }: Dashbo
       title: "Kelola Pertanyaan",
       href: "/admin/manage-question",
       icon: <FileQuestion className="h-5 w-5" />,
-      badge: null,
-    },
-    {
-      title: "Pengaturan",
-      href: "/admin/settings",
-      icon: <Settings className="h-5 w-5" />,
       badge: null,
     },
   ]

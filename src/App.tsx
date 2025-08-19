@@ -128,11 +128,11 @@ function App() {
             <Route
               path="/admin/manage-question"
               element={
-                <ProtectedRoute adminOnly>
+                // <ProtectedRoute adminOnly>
                   <DashboardLayout>
                     <ManageQuestionsPage />
                   </DashboardLayout>
-                </ProtectedRoute>
+                // </ProtectedRoute>
               }
             />
 
