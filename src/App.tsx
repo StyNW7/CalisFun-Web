@@ -12,7 +12,7 @@ import Layout from "@/layouts/root-layout";
 
 // Utility Pages / Components
 
-import ScrollToTop from "./utility/ScrollToTop";
+// import ScrollToTop from "./utility/ScrollToTop";
 // import CustomCursor from "./utility/CustomCursor";
 import ScrollToTopFunction from "./utility/ScrollToTopFunction";
 import NotFoundPage from "./pages/Utility/NotFound404";
@@ -49,6 +49,7 @@ import ManageQuestionsPage from "./pages/Admin/Questions/page";
 import CreateQuestionPage from "./pages/Admin/Questions/create/page";
 import DashboardLayout from "./pages/Admin/layout";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Chatbot from "./components/Chatbot";
 
 function App() {
 
@@ -60,7 +61,7 @@ function App() {
 
     <BrowserRouter>
       <ScrollToTopFunction />
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       {/* <CustomCursor /> */}
 
       {loading && (
@@ -154,6 +155,8 @@ function App() {
         )}
 
       </AnimatePresence>
+
+      <Chatbot/>
 
       <Toaster position="top-center" />
 
