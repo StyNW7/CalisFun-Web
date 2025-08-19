@@ -22,7 +22,7 @@ import useQuestions from "@/hooks/useQuestion";
 
 export default function ManageQuestionsPage() {
   
-  const [activeTab, setActiveTab] = useState<"read" | "write">("read");
+  const [activeTab, setActiveTab] = useState<"reading" | "writing">("reading");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [selectedLevel, setSelectedLevel] = useState<string>("all");
@@ -36,7 +36,7 @@ export default function ManageQuestionsPage() {
     updateQuestion,
   } = useQuestions();
 
-  const currentQuestions = activeTab === "read" ? readingQuestions : writingQuestions;
+  const currentQuestions = activeTab === "reading" ? readingQuestions : writingQuestions;
 
   const filteredQuestions = currentQuestions.filter((question) => {
     const matchesSearch = question.word.toLowerCase().includes(searchTerm.toLowerCase());
@@ -169,9 +169,9 @@ export default function ManageQuestionsPage() {
       <div className="bg-white rounded-xl border border-gray-200 shadow-sm">
         <div className="flex border-b border-gray-200">
           <button
-            onClick={() => setActiveTab("read")}
+            onClick={() => setActiveTab("reading")}
             className={`flex-1 px-6 py-4 text-sm font-semibold transition-all duration-200 relative ${
-              activeTab === "read"
+              activeTab === "reading"
                 ? "text-[#06D6A0] bg-[#06D6A0]/5"
                 : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
             }`}
@@ -180,14 +180,14 @@ export default function ManageQuestionsPage() {
               <BookOpen className="h-4 w-4" />
               Soal Baca ({readingQuestions.length})
             </div>
-            {activeTab === "read" && (
+            {activeTab === "reading" && (
               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#06D6A0] to-[#06D6A0]/50 animate-in slide-in-from-left-full duration-300" />
             )}
           </button>
           <button
-            onClick={() => setActiveTab("write")}
+            onClick={() => setActiveTab("writing")}
             className={`flex-1 px-6 py-4 text-sm font-semibold transition-all duration-200 relative ${
-              activeTab === "write"
+              activeTab === "writing"
                 ? "text-[#FFB703] bg-[#FFB703]/5"
                 : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
             }`}
@@ -196,7 +196,7 @@ export default function ManageQuestionsPage() {
               <PenTool className="h-4 w-4" />
               Soal Tulis ({writingQuestions.length})
             </div>
-            {activeTab === "write" && (
+            {activeTab === "writing" && (
               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#FFB703] to-[#FFB703]/50 animate-in slide-in-from-left-full duration-300" />
             )}
           </button>
