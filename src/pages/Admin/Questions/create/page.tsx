@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
 import type React from "react"
@@ -12,13 +13,22 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { toast } from "sonner"
 import { useNavigate } from "react-router"
+import { useAuth } from "@/context/AuthContext"
+
+interface CreateQuestionFormData {
+  type: "" | "reading" | "writing"
+  category: "" | "letter" | "word" | "number"
+  question: string
+}
 
 export default function CreateQuestionPage() {
 
-  const navigate = useNavigate();
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000/api";
+  const navigate = useNavigate()
+  const { token } = useAuth()
 
-  const [formData, setFormData] = useState({
-    type: "", // "read" or "write"
+  const [formData, setFormData] = useState<CreateQuestionFormData>({
+    type: "", // "reading" or "writing"
     category: "", // "letter", "word", "number"
     question: "",
   })
@@ -66,9 +76,9 @@ export default function CreateQuestionPage() {
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case "read":
+      case "reading":
         return "from-[#06D6A0] to-[#06D6A0]/80"
-      case "write":
+      case "writing":
         return "from-[#FFB703] to-[#FFB703]/80"
       default:
         return "from-[#3D7BF7] to-[#3D7BF7]/80"
@@ -83,20 +93,50 @@ export default function CreateQuestionPage() {
       return
     }
 
+    if (!token) {
+      toast.error("Anda harus login untuk membuat soal")
+      return
+    }
+
     setIsSubmitting(true)
 
     try {
-      // Here you would typically submit to your API
-      console.log("Creating new question:", formData)
+      // Prepare API endpoint based on question type
+      const endpoint = formData.type === "reading" 
+        ? `${API_BASE_URL || 'http://localhost:3000/api'}/reading/create`
+        : `${API_BASE_URL || 'http://localhost:3000/api'}/writing/create`
 
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      // Prepare request data
+      const requestData = {
+        word: formData.question.trim(),
+        category: formData.category
+      }
+
+      // Make API call
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(requestData)
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(errorData.message || `HTTP error! status: ${response.status}`)
+      }
+
+      const result = await response.json()
 
       toast.success("Soal berhasil dibuat!")
+      console.log("Question created successfully:", result)
+      
+      // Navigate back to manage questions page
       navigate("/admin/manage-question")
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error creating question:", error)
-      toast.error("Gagal membuat soal. Silakan coba lagi.")
+      toast.error(error.message || "Gagal membuat soal. Silakan coba lagi.")
     } finally {
       setIsSubmitting(false)
     }
@@ -135,23 +175,23 @@ export default function CreateQuestionPage() {
           <CardContent>
             <RadioGroup
               value={formData.type}
-              onValueChange={(value) => setFormData({ ...formData, type: value })}
+              onValueChange={(value: "reading" | "writing") => setFormData({ ...formData, type: value })}
               className="grid grid-cols-1 md:grid-cols-2 gap-4"
             >
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="read" id="read" className="text-[#06D6A0]" />
+                <RadioGroupItem value="reading" id="reading" className="text-[#06D6A0]" />
                 <label
-                  htmlFor="read"
+                  htmlFor="reading"
                   className={`flex-1 p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
-                    formData.type === "read"
+                    formData.type === "reading"
                       ? "border-[#06D6A0] bg-[#06D6A0]/10 shadow-md"
                       : "border-gray-200 hover:border-[#06D6A0]/50 hover:bg-[#06D6A0]/5"
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`p-2 rounded-lg ${formData.type === "read" ? "bg-[#06D6A0]/20" : "bg-gray-100"}`}>
+                    <div className={`p-2 rounded-lg ${formData.type === "reading" ? "bg-[#06D6A0]/20" : "bg-gray-100"}`}>
                       <BookOpen
-                        className={`h-5 w-5 ${formData.type === "read" ? "text-[#06D6A0]" : "text-gray-600"}`}
+                        className={`h-5 w-5 ${formData.type === "reading" ? "text-[#06D6A0]" : "text-gray-600"}`}
                       />
                     </div>
                     <div>
@@ -163,19 +203,19 @@ export default function CreateQuestionPage() {
               </div>
 
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="write" id="write" className="text-[#FFB703]" />
+                <RadioGroupItem value="writing" id="writing" className="text-[#FFB703]" />
                 <label
-                  htmlFor="write"
+                  htmlFor="writing"
                   className={`flex-1 p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
-                    formData.type === "write"
+                    formData.type === "writing"
                       ? "border-[#FFB703] bg-[#FFB703]/10 shadow-md"
                       : "border-gray-200 hover:border-[#FFB703]/50 hover:bg-[#FFB703]/5"
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`p-2 rounded-lg ${formData.type === "write" ? "bg-[#FFB703]/20" : "bg-gray-100"}`}>
+                    <div className={`p-2 rounded-lg ${formData.type === "writing" ? "bg-[#FFB703]/20" : "bg-gray-100"}`}>
                       <PenTool
-                        className={`h-5 w-5 ${formData.type === "write" ? "text-[#FFB703]" : "text-gray-600"}`}
+                        className={`h-5 w-5 ${formData.type === "writing" ? "text-[#FFB703]" : "text-gray-600"}`}
                       />
                     </div>
                     <div>
@@ -204,7 +244,7 @@ export default function CreateQuestionPage() {
                 <button
                   key={category}
                   type="button"
-                  onClick={() => setFormData({ ...formData, category })}
+                  onClick={() => setFormData({ ...formData, category: category as "letter" | "word" | "number" })}
                   className={`p-6 rounded-xl border-2 transition-all duration-200 hover:scale-105 ${
                     formData.category === category
                       ? getCategoryBg(category) + " shadow-lg scale-105"
@@ -234,41 +274,6 @@ export default function CreateQuestionPage() {
 
         {/* Level and Question Input */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Level Selection */}
-          {/* <Card className="border-2 border-gray-200 hover:border-[#3D7BF7]/30 transition-all duration-200 hover:shadow-lg">
-            <CardHeader className="pb-4">
-              <CardTitle className="text-lg">Level Kesulitan</CardTitle>
-              <CardDescription>Pilih tingkat kesulitan soal</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Select value={formData.level} onValueChange={(value) => setFormData({ ...formData, level: value })}>
-                <SelectTrigger className="h-12 border-2 border-gray-200 focus:border-[#3D7BF7] focus:ring-[#3D7BF7]/20">
-                  <SelectValue placeholder="Pilih level..." />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="1">
-                    <div className="flex items-center gap-2">
-                      <Badge className="bg-green-100 text-green-700 border-green-200">Level 1</Badge>
-                      <span className="text-sm text-gray-600">Mudah</span>
-                    </div>
-                  </SelectItem>
-                  <SelectItem value="2">
-                    <div className="flex items-center gap-2">
-                      <Badge className="bg-yellow-100 text-yellow-700 border-yellow-200">Level 2</Badge>
-                      <span className="text-sm text-gray-600">Sedang</span>
-                    </div>
-                  </SelectItem>
-                  <SelectItem value="3">
-                    <div className="flex items-center gap-2">
-                      <Badge className="bg-red-100 text-red-700 border-red-200">Level 3</Badge>
-                      <span className="text-sm text-gray-600">Sulit</span>
-                    </div>
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-            </CardContent>
-          </Card> */}
-
           {/* Question Input */}
           <Card className="lg:col-span-2 border-2 border-gray-200 hover:border-[#3D7BF7]/30 transition-all duration-200 hover:shadow-lg">
             <CardHeader className="pb-4">
@@ -330,7 +335,7 @@ export default function CreateQuestionPage() {
             <CardContent>
               <div className="flex flex-wrap items-center gap-3 p-4 bg-white rounded-lg border border-[#3D7BF7]/20">
                 <Badge className={`bg-gradient-to-r ${getTypeColor(formData.type)} text-white border-0 font-medium`}>
-                  {formData.type === "read" ? "Baca" : "Tulis"}
+                  {formData.type === "reading" ? "Baca" : "Tulis"}
                 </Badge>
                 <Badge
                   className={`${getCategoryColor(formData.category).replace("from-", "bg-").replace("to-[#06D6A0]/80", "").replace("to-[#FFB703]/80", "").replace("to-[#E63946]/80", "")} text-white border-0 font-medium`}
@@ -339,9 +344,6 @@ export default function CreateQuestionPage() {
                     {getCategoryIcon(formData.category)}
                     {formData.category === "letter" ? "Huruf" : formData.category === "word" ? "Kata" : "Angka"}
                   </div>
-                </Badge>
-                <Badge variant="outline" className="font-medium">
-                  Level XXX
                 </Badge>
                 <div className="flex-1 min-w-0">
                   <div className="font-mono text-lg font-semibold text-gray-900 bg-gray-50 px-3 py-2 rounded-lg">

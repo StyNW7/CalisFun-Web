@@ -151,7 +151,7 @@ export default function DashboardSidebar({ isOpen, setIsOpen, isMobile }: Dashbo
                     A
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-gray-800">Stanley Wijaya</h3>
+                    <h3 className="font-semibold text-gray-800">CalisFun Admin</h3>
                   </div>
                 </div>
                 
