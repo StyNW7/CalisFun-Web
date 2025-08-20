@@ -59,7 +59,7 @@ function App() {
 
     // Providers, Router, Scroll to Top Function and Button, and Custom Cursor
 
-    <BrowserRouter>
+    <>
       <ScrollToTopFunction />
       {/* <ScrollToTop /> */}
       {/* <CustomCursor /> */}
@@ -160,7 +160,7 @@ function App() {
 
       <Toaster position="top-center" />
 
-    </BrowserRouter>
+    </>
 
   );
 }

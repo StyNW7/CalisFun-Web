@@ -1,4 +1,4 @@
 import { setupServer } from 'msw/node'
-import { handlers } from '@/tests/test-handlers'
+import { handlers } from './test-handlers'
 
 export const server = setupServer(...handlers)
