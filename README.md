@@ -1,56 +1,16 @@
-<div align="center">
-    <div>
-        <img height="150px" src="./Images/logo.png" alt="CalisFun Logo"/>
-    </div>
-    <div>
-            <h3><b>CalisFun - AI Repository</b></h3>
-            <p><i>Cerdas Sejak Dini, Seru Sepanjang Hari</i></p>
-    </div>      
-</div>
-<br>
-<h1 align="center">CalisFun - SEA Academy Compfest 17</h1>
-<div align="center">
-
-<img src="./Images/banner.png" alt="CalisFun Preview"/>
-
-</div>
-<br>
-
-CalisFun is an interactive educational app designed to help children learn to read, write, and count in a fun, gamified, and accessible way.
-
-The app offers three main features:
-
-<ul>
-<li>✍️ Learn Handwriting – practice writing letters, numbers, and words interactively on a smartphone screen.</li>
-<li>🔤 Learn Spelling – spelling games with audio-visual aids.</li>
-<li>🔢 Learn Counting – recognize numbers and basic math operations through mini-games.</li>
-</ul>
-
-Supported by AI OCR (to automatically recognize children's handwriting) and AI Chatbot (as a friendly virtual tutor), CalisFun aims to reduce illiteracy and make basic learning more fun, adaptive, and inclusive, especially for children in areas with limited access to education.
-
-Further documentation is available at: <a href="">Main Repository</a>
-
-<!-- CalisFun adalah aplikasi edukasi interaktif yang dirancang untuk membantu anak-anak belajar membaca, menulis, dan berhitung dengan cara yang seru, gamified, dan mudah diakses.
-
-Aplikasi ini menghadirkan tiga fitur utama:
-
-<ul>
-<li>✍️ Learn Handwriting – latihan menulis huruf, angka, dan kata secara interaktif di layar smartphone.</li>
-<li>🔤 Learn Spelling – permainan mengeja kata dengan bantuan audio-visual.</li>
-<li>🔢 Learn Counting – pengenalan angka dan operasi matematika dasar melalui mini games.</li>
-</ul>
-
-Didukung dengan AI OCR (untuk mengenali tulisan anak secara otomatis) dan AI Chatbot (sebagai tutor virtual yang ramah), CalisFun bertujuan untuk mengurangi angka buta aksara serta menjadikan proses belajar dasar lebih menyenangkan, adaptif, dan inklusif, terutama bagi anak-anak di wilayah dengan keterbatasan akses pendidikan.
-
-Dokumentasi Lebih Lanjut berada di: <a href="">Main Repository</a> -->
+# CalisFun Web Repository Documentation
 
 ---
 
 ## 📃 Table of Contents
 - [⚙️ Technology Stack](#-technology-stack)
 - [🧩 Core Features](#-core-features)
-- [🧰 Getting Started Locally](#-getting-started-locally)
+- [🏗️ Clean Architecture](#-clean-architecture)
+- [🧪 Test Coverage](#-test-coverage)
 - [🔐 .env Configuration](#-env-configuration)
+- [🧰 Getting Started Locally](#-getting-started-locally)
+- [🧭 Flowchart Diagram](#-flowchart-diagram)
+- [📝 Important Notes](#-important-notes)
 - [👥 Owner](#-owner)
 - [📬 Contact](#-contact)
 
@@ -60,59 +20,144 @@ Dokumentasi Lebih Lanjut berada di: <a href="">Main Repository</a> -->
 
 <div align="center">
 
-<kbd><img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/python.png" height="60" /></kbd>
-<kbd><img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/flask.png" height="60" /></kbd>
-<kbd><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" height="60" /></kbd>
-<kbd><img src="./Images/tech/azure.png" height="60" /></kbd>
-<kbd><img src="./Images/tech/openai.png" height="60" /></kbd>
+<kbd><img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/react.png" height="60" /></kbd>
+<kbd><img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/typescript.png" height="60" /></kbd>
+<kbd><img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/vite.png" height="60" /></kbd>
+<kbd><img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/tailwind_css.png" height="60" /></kbd>
+<kbd><img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/shadcn_ui.png" height="60" /></kbd>
+<kbd><img src="./Images/tech/vitest.png" height="60" /></kbd>
 
 </div>
 
 <div align="center">
-<h4>Python | Flask | Hugging Face | Microsoft Azure | OpenAI</h4>
+<h4>React | TypeScript | Vite | TailwindCSS | ShadcnUI | Vitest</h4>
 </div>
 
 ---
 
 ## 🧩 Core Features
 
-### 🖼️ Image OCR (Microsoft TrOCR)
-- Input: file gambar (PNG/JPG) atau base64.
-- Output: teks hasil OCR + confidence (opsional) + detil waktu proses.
-- Model default: `microsoft/trocr-base-printed`
-- Penggunaan: deteksi huruf/kata dari lembar latihan tulis anak atau kartu kosakata.
+### 🌐 Landing Page & SEO
+- Provides an official information page about the CalisFun app.
+- Serves as a promotional hub to increase app visibility through SEO optimization.
+- Users can read the description, key features, testimonials, and view a preview of the app.
 
-### 💬 Chatbot (Azure OpenAI Model)
-- Input: pertanyaan dari pengguna (bisa tentang apapun)
-- Output: respon dari AI Chatbot yang menggunakan model OpenAI-35
+### 📥 APK Download
+- Users can directly download the CalisFun app .apk file through the website.
+- Alternative distribution option besides the Google Play Store/App Store.
+- The download link for the latest version is always available and integrated with release management.
+
+### 🛠️ Admin Dashboard
+- **User Account Management:** Create, edit, deactivate, or delete child and parent accounts.
+- **Question & Content Management:** CRUD practice questions (handwriting, spelling, counting) for the CalisFun app.
+- **Data Analytics:** Displays learning progress data, number of users, daily activity, and app performance statistics.
+- **Role Management:** differentiates admin and moderator access for more controlled security & management.
 
 ---
 
-## 🧰 Getting Started Locally
+## 🏗️ Architecture Pattern
 
-### Prerequisites
-- **Python**
-- **Docker** (optional)
-- **Git**
+### Repository Structure
 
-### Clone the Project
-```bash
-
-# Cloning Repo
-git clone https://github.com/best-team-compfest17/CalisFun-AI.git
-cd CalisFun-AI
-
-# Make Virtual Environment
-python -m venv .venv
-source .venv/bin/activate # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-
-# Run the flask api python (in the root folder)
-python app.py
-
-# To run the test coverage (in the root folder)
-python -m unittest test.py -v
 ```
+calis-fun-web/
+├── .github/                    # GitHub workflows / CI configuration
+├── coverage/                   # Coverage reports (Using Vitest)
+├── Images/                     # Repo-related images (for docs/README)
+├── node_modules/               # Dependencies (auto-generated)
+├── public/                     # Static public assets (favicon, static images, manifest, etc.)
+│
+├── src/                        # Main source code
+│   ├── assets/                 # Images, icons, and static files for UI
+│   ├── components/             # Reusable React components (UI building blocks)
+│   ├── context/                # React context providers (Auth, Theme, Global State)
+│   ├── hooks/                  # Custom React hooks
+│   ├── layouts/                # Layout components (e.g., Admin layout, Landing layout)
+│   ├── lib/                    # Utility libraries (API clients, helpers)
+│   ├── pages/                  # Page-level components (Landing page, Dashboard, etc.)
+│   ├── services/               # API calls & backend integration (Express/MongoDB endpoints)
+│   ├── tests/                  # Unit & integration tests
+│   ├── types/                  # TypeScript types and interfaces
+│   ├── utility/                # Utility functions (formatting, constants, validation)
+│   │
+│   ├── App.tsx                 # Main app component (routing entry point)
+│   ├── index.css               # Global CSS styling
+│   ├── main.tsx                # Entry point for React + Vite
+│   └── vite-env.d.ts           # TypeScript env type definitions
+│
+├── .env                        # Environment variables (local)
+├── .env.sample                 # Sample env file for reference
+├── .gitignore                  # Git ignore rules
+├── components.json             # Config file for shadcn/ui or custom component setup
+├── eslint.config.js            # ESLint rules & configs
+├── index.html                  # Root HTML file (for Vite/React)
+├── package.json                # Project metadata & dependencies
+├── package-lock.json           # Locked dependency 
+├── README.md                   # Repository Documentation
+├── tailwind.config.js          # Tailwind Configuration
+├── vercel.json                 # Vercel Config for Deployment
+├── vite.config.ts              # Vite Configuration
+```
+
+
+### **Architecture Principles**
+
+The architecture for the **CalisFun Web Frontend** follows a **Layered Architecture** with emphasis on **scalability, reusability, and maintainability**.
+
+1. **Layered Architecture Pattern**
+
+    * Presentation Layer (UI): components, layouts, and pages folder
+    * Application Layer (State & Orchestration Layer): context and hooks folder
+    * Domain Layer (Business): services, utility, and lib folder
+    * Infrastructure Layer: types, tests, public, assets folder
+
+2. **Component-First**
+
+   * `components/` holds reusable UI building blocks (buttons, cards, forms).
+   * `layouts/` defines page skeletons (Landing, Dashboard).
+   * `pages/` contain high-level views that orchestrate components.
+
+3. **Separation of Concerns**
+
+   * `services/` → communication layer for backend API.
+   * `context/` → global state & role-based access (parent, child, admin).
+   * `hooks/` → encapsulate reusable logic for cleaner components.
+   * `utility/` → shared utilities (formatting, constants, validation).
+
+4. **Scalability in Mind**
+
+   * `types/` → enforce strong typing with TypeScript.
+   * `tests/` → ensure testability with Jest/Vitest.
+   * `assets/` → central location for images/icons for consistency.
+
+5. **Vite + React + TS Setup**
+
+   * `main.tsx` → bootstraps React.
+   * `App.tsx` → app-wide routing & layout injection.
+   * Integrated with **shadcn/ui** + **TailwindCSS** for clean and modern UI.
+
+
+---
+
+
+## 🔒 Security
+
+Because this repository is just for local development and testing, so there is no CI/CD Implementation. However from docker folder you can build the docker image successfully.
+
+---
+
+## 📝 CI/CD
+
+Because this repository is just for local development and testing, so there is no CI/CD Implementation. However from docker folder you can build the docker image successfully.
+
+---
+
+## 🧪 Test Coverage
+
+We already succedd to passed some of unit tests such as button test, shadcnui library test, navbar test, and etc. We also already manually tested our website and from user perspective we can know better about CalisFun and download the app. From the admin perspective we can manage users and questions for CalisFun.
+
+
+<img src="./Images/test_coverage.png" height="210"/>
 
 ---
 
@@ -120,20 +165,77 @@ python -m unittest test.py -v
 
 .env for the AI
 ```
-AZURE_OPENAI_KEY=...
-AZURE_OPENAI_ENDPOINT=https://<your-azure-openai>.openai.azure.com/
-AZURE_API_VERSION=2024-06-01 # Example
-AZURE_OPENAI_DEPLOYMENT=gpt-35-turbo
-
-PORT=5000
-CORS_ALLOW_ORIGINS=*
-MAX_UPLOAD_MB=10
-
-TROCR_MODEL_ID=microsoft/trocr-base-printed
-MODEL_CACHE_DIR=/app/image-ocr/trocr_cache
+VITE_API_BASE_URL=http://localhost:3000/api
 ```
 
-You can also copy the .env.sample then rename it to .env and update your .env file
+You can also copy the .env.sample then rename it to .env
+
+---
+
+## 🧰 Getting Started Locally
+
+### Prerequisites
+- **Node.js** (v16+)
+- **Git**
+
+### Clone the Project
+```bash
+git clone https://github.com/best-team-compfest17/CalisFun-Web.git
+cd CalisFun-Web
+npm install
+npm run dev # Run the local server
+npm run test # Run vitest test
+npm run test --coverage # Make the test coverage report
+```
+
+---
+
+## 📸 &nbsp;Website Preview
+<table style="width:100%; text-align:center">
+    <col width="100%">
+    <tr>
+        <td width="1%" align="center"><img height="370" src="./Images/Preview/home.png"/></td>
+    </tr>
+    <tr>
+        <td width="1%" align="center">Home Page</td>
+    </tr>
+    <tr>
+        <td width="1%" align="center"><img height="400" src="./Images/Preview/features.png"/></td>
+    </tr>
+    <tr>
+        <td width="1%" align="center">Features Page</td>
+    </tr>
+    <tr>
+        <td width="1%" align="center"><img height="400" src="./Images/Preview/sample-feature.png"/></td>
+    </tr>
+    <tr>
+        <td width="1%" align="center">Sample Feature Page</td>
+    </tr>
+    <tr>
+        <td width="1%" align="center"><img height="400" src="./Images/Preview/download.png"/></td>
+    </tr>
+    <tr>
+        <td width="1%" align="center">Download Page</td>
+    </tr>
+    <tr>
+        <td width="1%" align="center"><img height="400" src="./Images/Preview/admin-overview.png"/></td>
+    </tr>
+    <tr>
+        <td width="1%" align="center">Admin Overview Dashboard Page</td>
+    </tr>
+    <tr>
+        <td width="1%" align="center"><img height="400" src="./Images/Preview/admin-manage-user.png"/></td>
+    </tr>
+    <tr>
+        <td width="1%" align="center">Admin Manage User Dashboard Page</td>
+    </tr>
+    <tr>
+        <td width="1%" align="center"><img height="400" src="./Images/Preview/admin-manage-question.png"/></td>
+    </tr>
+    <tr>
+        <td width="1%" align="center">Admin Manage Question Page</td>
+    </tr>
+</table>
 
 ---
 
