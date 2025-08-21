@@ -322,7 +322,7 @@ Password: admin
 
 ## 🔐 .env Configuration
 
-.env for the AI
+.env to connect with the backend successfully
 ```
 VITE_API_BASE_URL=http://localhost:3000/api
 ```
