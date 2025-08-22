@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { MessageCircle, X, Send, Bot, User } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { useAuth } from "@/context/AuthContext"
+// import { useAuth } from "@/context/AuthContext"
 import {toast} from "sonner"
 
 interface Message {
@@ -23,7 +23,7 @@ export default function Chatbot() {
 
   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000/api";
 
-  const { token } = useAuth()
+  // const { token } = useAuth()
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -67,15 +67,15 @@ export default function Chatbot() {
     setIsTyping(true)
 
     try {
-      if (!token) {
-        throw new Error("Anda harus login untuk menggunakan chatbot")
-      }
+      // if (!token) {
+      //   throw new Error("Anda harus login untuk menggunakan chatbot")
+      // }
 
       const response = await fetch(`${API_BASE_URL || 'http://localhost:3000/api'}/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
+          // "Authorization": `Bearer ${token}`
         },
         body: JSON.stringify({
           message: inputValue
