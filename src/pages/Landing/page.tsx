@@ -28,12 +28,46 @@ import {
   Github,
 } from "lucide-react"
 import { useNavigate } from "react-router"
+import { Helmet } from "react-helmet-async"
 
 export default function HomePage() {
 
   const navigate = useNavigate()
 
   return (
+
+    <>
+
+    <Helmet>
+      {/* Basic SEO */}
+      <title>CalisFun | Fun Learning for Kids</title>
+      <meta
+        name="description"
+        content="CalisFun helps kids improve handwriting, spelling, and math through fun games and challenges."
+      />
+      <meta name="keywords" content="learning app, handwriting, spelling, math games, kids education" />
+      <meta name="author" content="CalisFun Team" />
+
+      {/* Open Graph for social sharing */}
+      <meta property="og:title" content="CalisFun - Gamified Learning for Kids" />
+      <meta
+        property="og:description"
+        content="Improve handwriting, spelling, and math skills with CalisFun's fun challenges."
+      />
+      <meta property="og:image" content="/images/calisfun-preview.png" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://calisfun.vercel.app/" />
+
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="CalisFun - Fun Learning for Kids" />
+      <meta name="twitter:description" content="Gamify handwriting, spelling, and math learning for kids." />
+      <meta name="twitter:image" content="/images/calisfun-preview.png" />
+
+      {/* Canonical link */}
+      <link rel="canonical" href="https://calisfun.vercel.app/" />
+    </Helmet>
+
     <div className="min-h-screen">
 
       {/* Hero Section */}
@@ -1183,5 +1217,6 @@ export default function HomePage() {
       </section>
 
     </div>
+    </>
   )
 }
