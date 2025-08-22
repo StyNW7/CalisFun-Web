@@ -464,4 +464,4 @@ Have questions or want to collaborate?
 - 📧 Email: stanley.n.wijaya7@gmail.com
 - 💬 Discord: `stynw7`
 
-<code>Made with ❤️ by The Calon Best Team</code>
+<code>Made with ❤️ by The Calon Best Team</code> 
