@@ -309,6 +309,53 @@ We already succedd to passed some of unit tests such as button test, shadcnui li
 
 ---
 
+
+---
+
+## ⚡ Non-Functional Requirements (NFR)
+
+To ensure the **CalisFun Frontend Website** meets enterprise-level standards, we define the following **Non-Functional Requirements**:
+
+### 🔹 Performance
+- Page load time: **< 2 seconds** for landing pages.  
+- API response time: **< 500 ms** average per transaction.
+
+### 🔹 Availability
+- Target uptime: **99.9% SLA** with Vercel hosting.  
+- Automatic redeploy on every push to `main` branch ensures minimal downtime.  
+
+### 🔹 Scalability
+- Designed to handle **10× user growth** (e.g., 10k → 100k active users). 
+- Modular frontend components ensure smooth addition of new features.  
+
+### 🔹 Security
+- **JWT-based Authentication** integrated with backend.  
+- **Role-Based Access Control (RBAC)** to differentiate Admin vs User features.  
+- Secure HTTPS communication with environment-based API keys.  
+
+### 🔹 Maintainability
+- **Layered and modular architecture** (components, services, hooks).  
+- Centralized **error handling & logging** for debugging.  
+- Enforced coding standards with **ESLint + Prettier**.  
+- Continuous test coverage (unit + integration tests with Vitest).  
+
+---
+
+## 🚫 Out-of-Scope
+
+The following items are **explicitly excluded** from this iteration of CalisFun Frontend Website:
+
+- ❌ **Mobile App Functionality**  
+  - The mobile learning experience is only available through the **Flutter-based mobile app**, not on the web.  
+
+- ❌ **Automated AI Content Management**  
+  - All questions, exercises, and learning content are manually curated via the **Admin Dashboard**.  
+  - No AI auto-generation of new questions in this release.  
+
+- ❌ **Offline-First Web Experience**  
+  - Website requires an internet connection for authentication, data fetching, and dashboard usage.  
+
+
 ## 🤵 Admin Account
 
 For testing, you can access the admin account credential
