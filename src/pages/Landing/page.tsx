@@ -1105,16 +1105,8 @@ export default function HomePage() {
 
               {/* Download Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                <button
-                  onClick={() => {
-                    // Create and download APK file
-                    const link = document.createElement("a")
-                    link.href = "/placeholder.apk"
-                    link.download = "CalisFun-v1.2.3.apk"
-                    document.body.appendChild(link)
-                    link.click()
-                    document.body.removeChild(link)
-                  }}
+                <a href="https://drive.google.com/drive/folders/1LYj5Aue0JOMmDMeRlu_nA0L04DEDNKlH?usp=sharing" target="_blank">
+                  <button
                   className="group bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-3"
                 >
                   <div className="w-8 h-8 bg-[#06D6A0] rounded-lg flex items-center justify-center">
@@ -1126,6 +1118,7 @@ export default function HomePage() {
                   </div>
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
+                </a>
 
                 <button
                   disabled

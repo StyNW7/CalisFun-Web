@@ -12,6 +12,8 @@
 - [🔒 Security](#-test-coverage)
 - [📝 CI/CD](#-ci/cd)
 - [🧪 Test Coverage](#-test-coverage)
+- [⚡ Non-Functional Requirements](#-non-functional-requirements)
+- [🚫 Out-of-Scope](#-out-of-scope)
 - [🤵 Admin Account Information](#-admin-account)
 - [🔐 .env Configuration](#-env-configuration)
 - [🧰 Getting Started Locally](#-getting-started-locally)
@@ -306,9 +308,6 @@ Metrics tracked:
 We already succedd to passed some of unit tests such as button test, shadcnui library test, navbar test, and etc. We also already manually tested our website and from user perspective we can know better about CalisFun and download the app. From the admin perspective we can manage users and questions for CalisFun.
 
 <img src="./Images/test_coverage.png" height="210"/>
-
----
-
 
 ---
 

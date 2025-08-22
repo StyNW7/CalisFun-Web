@@ -67,15 +67,8 @@ export default function DownloadPage() {
 
               {/* Main Download Buttons */}
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-                <button
-                  onClick={() => {
-                    const link = document.createElement("a")
-                    link.href = "/placeholder.apk"
-                    link.download = "CalisFun-v1.2.3.apk"
-                    document.body.appendChild(link)
-                    link.click()
-                    document.body.removeChild(link)
-                  }}
+                <a href="https://drive.google.com/drive/folders/1LYj5Aue0JOMmDMeRlu_nA0L04DEDNKlH?usp=sharing" target="_blank">
+                  <button
                   className="group bg-black hover:bg-gray-800 text-white px-12 py-6 rounded-2xl font-bold text-xl transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-4 shadow-2xl"
                 >
                   <div className="w-12 h-12 bg-[#06D6A0] rounded-xl flex items-center justify-center">
@@ -87,6 +80,7 @@ export default function DownloadPage() {
                   </div>
                   <ChevronRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
                 </button>
+                </a>
 
                 <button
                   disabled
@@ -319,20 +313,14 @@ export default function DownloadPage() {
                 </div>
 
                 <div className="mt-8">
-                  <button
-                    onClick={() => {
-                      const link = document.createElement("a")
-                      link.href = "/placeholder.apk"
-                      link.download = "CalisFun-v1.2.3.apk"
-                      document.body.appendChild(link)
-                      link.click()
-                      document.body.removeChild(link)
-                    }}
-                    className="w-full bg-[#06D6A0] hover:bg-[#059669] text-white py-4 rounded-xl font-semibold text-lg transition-colors flex items-center justify-center space-x-2"
-                  >
-                    <Download className="w-5 h-5" />
-                    <span>Download untuk Android</span>
-                  </button>
+                  <a href="https://drive.google.com/drive/folders/1LYj5Aue0JOMmDMeRlu_nA0L04DEDNKlH?usp=sharing" target="_blank">
+                    <button
+                      className="w-full bg-[#06D6A0] hover:bg-[#059669] text-white py-4 rounded-xl font-semibold text-lg transition-colors flex items-center justify-center space-x-2"
+                    >
+                      <Download className="w-5 h-5" />
+                      <span>Download untuk Android</span>
+                    </button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -577,21 +565,15 @@ export default function DownloadPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button
-              onClick={() => {
-                const link = document.createElement("a")
-                link.href = "/placeholder.apk"
-                link.download = "CalisFun-v1.2.3.apk"
-                document.body.appendChild(link)
-                link.click()
-                document.body.removeChild(link)
-              }}
+            <a href="https://drive.google.com/drive/folders/1LYj5Aue0JOMmDMeRlu_nA0L04DEDNKlH?usp=sharing" target="_blank">
+              <button
               className="group bg-black hover:bg-gray-800 text-white px-12 py-6 rounded-2xl font-bold text-xl transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-4"
             >
               <Download className="w-6 h-6" />
               <span>Download Android</span>
               <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </button>
+            </a>
 
             <button
               disabled
